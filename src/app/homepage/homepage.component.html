@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="banners">
+    <div class="banners-item" *ngFor="let banner of banners">
+      <img [src]="banner?.src" [alt]="banner?.name" class="banners-img" />
+    </div>
+  </div>
+</div>

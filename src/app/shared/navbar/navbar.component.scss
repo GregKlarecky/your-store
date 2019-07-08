@@ -1,0 +1,33 @@
+@import "~src/assets/styles/variables";
+// :host {
+//   background-color: $brand-color;
+//   color: #fff;
+//   height: 3.5rem;
+//   width: 100%;
+//   display: flex;
+// }
+
+.container {
+  background-color: $brand-color;
+  color: #fff;
+  height: $navbar-height;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+  position: fixed;
+  .tools {
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav-item {
+    padding: 1rem;
+    cursor: pointer;
+  }
+}
+
+.padding {
+  height: $navbar-height;
+  width: 100%;
+}
