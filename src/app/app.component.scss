@@ -1,0 +1,6 @@
+@import "~src/assets/styles/variables";
+
+.disabled-scroll {
+  height: calc(100vh - 56px);
+  overflow: hidden;
+}

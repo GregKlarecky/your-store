@@ -1,11 +1,4 @@
 @import "~src/assets/styles/variables";
-// :host {
-//   background-color: $brand-color;
-//   color: #fff;
-//   height: 3.5rem;
-//   width: 100%;
-//   display: flex;
-// }
 
 .container {
   background-color: $brand-color;
@@ -17,6 +10,7 @@
   align-items: center;
   font-size: 1.3rem;
   position: fixed;
+  z-index: 10;
   .tools {
     display: flex;
     justify-content: space-between;
@@ -30,4 +24,10 @@
 .padding {
   height: $navbar-height;
   width: 100%;
+}
+
+.logo {
+  &:focus {
+    outline: none;
+  }
 }

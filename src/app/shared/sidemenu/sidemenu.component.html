@@ -1,1 +1,30 @@
-<p>sidemenu works!</p>
+<div class="sidemenu" [class.active]="isMenuToggled">
+  <div>
+    <div class="sidemenu-top">
+      <div class="account-logo">
+        <i class="fas fa-user-circle"></i>
+      </div>
+      <span>Log in</span>
+    </div>
+    <ul class="categories-list">
+      <li
+        class="categories-list-item selected-category"
+        *ngIf="rootCategory.id !== 0"
+        (click)="showSubcategoryByParentId(rootCategory.parent)"
+      >
+        <span class="chevron"> <i class="fas fa-chevron-down"></i></span
+        ><span class="category-name">{{ rootCategory.name }}</span>
+      </li>
+      <li
+        class="categories-list-item"
+        *ngFor="let category of openedCategories"
+        (click)="showSubcategoryByParentId(category.id)"
+      >
+        <span class="chevron" [class.transparent]="!category?.children">
+          <i class="fas fa-chevron-right"></i></span
+        ><span class="category-name">{{ category?.name }}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="backdrop" *ngIf="isMenuToggled" (click)="toggleMenu()"></div>

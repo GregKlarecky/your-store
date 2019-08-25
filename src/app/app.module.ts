@@ -7,6 +7,9 @@ import { HomepageComponent } from "./homepage/homepage.component";
 import { NavbarComponent } from "./shared/navbar/navbar.component";
 import { SidemenuComponent } from "./shared/sidemenu/sidemenu.component";
 import { FooterComponent } from "./shared/footer/footer.component";
+import { BaseComponent } from "./shared/base/base.component";
+import { SubcategoryComponent } from "./subcategory/subcategory.component";
+import { CartComponent } from "./cart/cart.component";
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { FooterComponent } from "./shared/footer/footer.component";
     HomepageComponent,
     NavbarComponent,
     SidemenuComponent,
-    FooterComponent
+    FooterComponent,
+    BaseComponent,
+    SubcategoryComponent,
+    CartComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
