@@ -1,15 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { IProduct } from "src/interfaces/product.interface";
+import { productList } from "./product-list.helper";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: 'app-subcategory',
-  templateUrl: './subcategory.component.html',
-  styleUrls: ['./subcategory.component.scss']
+  selector: "app-subcategory",
+  templateUrl: "./subcategory.component.html",
+  styleUrls: ["./subcategory.component.scss"]
 })
 export class SubcategoryComponent implements OnInit {
-
-  constructor() { }
+  productList: IProduct[] = productList;
+  productListByCategory: IProduct[];
+  public categoryId: string;
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.getCategoryId();
   }
 
+  getProductListByCategory() {
+    this.productListByCategory = this.productList.filter(product => {
+      return product.category_id === parseInt(this.categoryId, 10);
+    });
+  }
+
+  getCategoryId() {
+    this.route.paramMap.subscribe(paramMap => {
+      this.categoryId = paramMap.get("id");
+      this.getProductListByCategory();
+    });
+  }
 }
