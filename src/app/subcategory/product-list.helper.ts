@@ -166,7 +166,7 @@ export const productList: IProduct[] = [
   },
   {
     name: "ilario",
-    sku: "MPC757",
+    sku: "MPC757b",
     price: 49.9,
     image_url: "MPC757-131-5L00-2500-0a.jpg",
     category_id: 53

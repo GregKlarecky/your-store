@@ -4,3 +4,7 @@
   height: calc(100vh - 56px);
   overflow: hidden;
 }
+
+.wrapper {
+  min-height: calc(100vh - 56px - 125px); // subtract navabar and footer
+}

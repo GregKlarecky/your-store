@@ -18,6 +18,9 @@
   .nav-item {
     padding: 1rem;
     cursor: pointer;
+    &:focus {
+      outline: none;
+    }
   }
 }
 

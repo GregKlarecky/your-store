@@ -10,6 +10,7 @@ import { FooterComponent } from "./shared/footer/footer.component";
 import { BaseComponent } from "./shared/base/base.component";
 import { SubcategoryComponent } from "./subcategory/subcategory.component";
 import { CartComponent } from "./cart/cart.component";
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CartComponent } from "./cart/cart.component";
     FooterComponent,
     BaseComponent,
     SubcategoryComponent,
-    CartComponent
+    CartComponent,
+    ProductDetailsComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
