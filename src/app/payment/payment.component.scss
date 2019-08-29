@@ -1,0 +1,25 @@
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  cursor: pointer;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 30px;
+  align-items: center;
+  height: 40px;
+  background: #fff;
+  border-radius: 4px;
+  img {
+    height: 40px;
+  }
+  .payU {
+    height: 25px;
+  }
+  i {
+    padding: 0 15px;
+  }
+}

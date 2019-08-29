@@ -1,13 +1,13 @@
 import { Component, OnInit } from "@angular/core";
-import { IProduct } from "src/interfaces/product.interface";
 import { productList } from "../subcategory/product-list.helper";
+import { IProduct } from "src/interfaces/product.interface";
 
 @Component({
-  selector: "app-cart",
-  templateUrl: "./cart.component.html",
-  styleUrls: ["./cart.component.scss"]
+  selector: "app-order",
+  templateUrl: "./order.component.html",
+  styleUrls: ["./order.component.scss"]
 })
-export class CartComponent implements OnInit {
+export class OrderComponent implements OnInit {
   cartItems: IProduct[];
   productList: IProduct[] = productList;
 

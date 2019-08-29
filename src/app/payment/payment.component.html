@@ -1,0 +1,52 @@
+<div class="container-padding">
+  <h1>Delivery and payment</h1>
+  <form [formGroup]="paymentForm" (submit)="onSubmit()">
+    <h3>Delivery options</h3>
+    <div class="form-group" *ngFor="let delivery of deliveryOptions">
+      <input
+        type="radio"
+        formControlName="delivery"
+        [value]="delivery.name"
+        [id]="delivery.name"
+        name="delivery"
+      />
+      <label [for]="delivery.name" class="shadow">
+        <img *ngIf="delivery.imageSrc" [src]="delivery.imageSrc" alt="" />
+        <i *ngIf="delivery.iconClass" [class]="delivery.iconClass"></i>
+        <span>
+          {{ delivery.label }}
+        </span>
+      </label>
+    </div>
+
+    <h3>Payment options</h3>
+    <div class="form-group" *ngFor="let payment of paymentOptions">
+      <input
+        type="radio"
+        formControlName="payment"
+        [value]="payment.name"
+        [id]="payment.name"
+        name="payment"
+      />
+      <label [for]="payment.name" class="shadow">
+        <img
+          *ngIf="payment.imageSrc"
+          [src]="payment.imageSrc"
+          alt=""
+          class="payU"
+        />
+        <i *ngIf="payment.iconClass" [class]="payment.iconClass"></i>
+        <span>
+          {{ payment.label }}
+        </span>
+      </label>
+    </div>
+    <button
+      class="button step-back-button w-100"
+      [routerLink]="['/checkout', 'shipping']"
+    >
+      Go back
+    </button>
+    <button class="button checkout-button w-100">Continue</button>
+  </form>
+</div>

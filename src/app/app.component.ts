@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
     this.menuService.toggleMenu.subscribe(isToggled => {
       this.isMenuToggled = isToggled;
       this.disableScroll = isToggled;
-      console.log(!isToggled);
     });
   }
 }

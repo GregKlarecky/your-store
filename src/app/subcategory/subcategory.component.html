@@ -1,11 +1,11 @@
 <div class="container">
   <ul class="list product-list">
-    <li
-      class="list-item"
-      *ngFor="let product of productListByCategory"
-      [routerLink]="['/product', product.name, product.sku]"
-    >
-      <img [src]="'assets/shoes/' + product.image_url" alt="" />
+    <li class="list-item shadow" *ngFor="let product of productListByCategory">
+      <img
+        [src]="'assets/shoes/' + product.image_url"
+        alt=""
+        [routerLink]="['/product', product.name, product.sku]"
+      />
       <div class="list-item-details">
         <span class="list-item-name">{{ product?.name | uppercase }}</span>
         <span class="list-item-price">{{

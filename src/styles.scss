@@ -1,12 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url("https://fonts.googleapis.com/css?family=Varela+Round&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Questrial&display=swap");
 @import "assets/styles/variables";
 
 body {
   margin: 0;
-  font-family: "Varela Round", sans-serif;
-  background: #e6e6e6;
+  font-family: "Questrial", sans-serif;
 }
 
 .backdrop {
@@ -35,10 +34,49 @@ body {
 }
 
 .button {
+  font-family: inherit;
   background: transparent;
   border: none;
   padding: 0;
   &:focus {
     outline: none;
   }
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  input {
+    box-sizing: border-box;
+    padding: 14px;
+    width: 100%;
+  }
+}
+
+.checkout-button {
+  background: #000;
+  color: #fff;
+  padding: 12px 20px;
+  font-weight: bold;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.step-back-button {
+  margin-bottom: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  padding: 8px 20px;
+  font-weight: bold;
+}
+
+.container-padding {
+  padding: 1rem;
+}
+
+.shadow {
+  -webkit-box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.3);
 }

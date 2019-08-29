@@ -21,10 +21,16 @@
       ><span>{{ totalCost | currency: "EUR":"symbol" }}</span>
     </div>
     <button
-      class="button checkout-button"
-      [routerLink]="['/checkout', 'shipping']"
+      class="button step-back-button w-100"
+      [routerLink]="['/checkout', 'payment']"
     >
-      To checkout
+      Go back
+    </button>
+    <button
+      class="button checkout-button"
+      [routerLink]="['/checkout', 'order-complete']"
+    >
+      Place order
     </button>
   </div>
 </div>

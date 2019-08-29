@@ -15,5 +15,9 @@
 .cart-summary {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   padding: 1rem;
+  .quote {
+    margin-bottom: 1rem;
+  }
 }
