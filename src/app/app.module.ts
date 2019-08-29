@@ -16,6 +16,7 @@ import { PaymentComponent } from "./payment/payment.component";
 import { OrderComponent } from "./order/order.component";
 import { OrderCompleteComponent } from "./order-complete/order-complete.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,12 @@ import { ReactiveFormsModule } from "@angular/forms";
     OrderComponent,
     OrderCompleteComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

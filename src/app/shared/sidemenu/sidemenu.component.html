@@ -6,7 +6,11 @@
       </div>
       <span>Log in</span>
     </div>
-    <ul class="categories-list">
+    <ul
+      class="categories-list"
+      [@cascadeAnimations]="openedCategories"
+      *ngIf="newCategories"
+    >
       <li
         class="categories-list-item selected-category"
         *ngIf="rootCategory.id !== 0"
