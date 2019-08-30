@@ -7,16 +7,32 @@
   <div class="product-details">
     <h1 class="product-name">{{ product?.name }}</h1>
     <span class="product-sku">{{ product?.sku }}</span>
-    <span class="product-price">{{ product?.price }}</span>
+    <span class="product-price">{{
+      product?.price | currency: "EUR":"symbol"
+    }}</span>
     <span class="product-delivery"> free delivery</span>
     <button class="button description">
       <i class="fas fa-list"></i><span> Description</span>
     </button>
     <div class="size-wrapper">
       <span class="size-select">Choose your size:</span>
-      <select name="" id="">
+      <select name="size" id="size" class="size-select">
         <option *ngFor="let size of sizes" [value]="size">{{ size }}</option>
       </select>
+      <div class="nice-select" (click)="openSizes()">
+        <span>Wybierz</span>
+        <i class="fas fa-chevron-down"></i>
+        <ul
+          class="list size-list"
+          [ngClass]="{
+            'no-animation': !sizesClicked,
+            'swing-bottom-forward': sizesOpened && sizesClicked,
+            'swing-bottom-bck': !sizesOpened && sizesClicked
+          }"
+        >
+          <li *ngFor="let size of sizes" class="single-size">{{ size }}</li>
+        </ul>
+      </div>
     </div>
     <button class="button add-to-cart">Add to cart</button>
   </div>

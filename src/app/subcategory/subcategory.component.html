@@ -1,21 +1,7 @@
 <div class="container">
   <ul class="list product-list">
     <li class="list-item shadow" *ngFor="let product of productListByCategory">
-      <img
-        [src]="'assets/shoes/' + product.image_url"
-        alt=""
-        [routerLink]="['/product', product.name, product.sku]"
-      />
-      <div class="list-item-details">
-        <span class="list-item-name">{{ product?.name | uppercase }}</span>
-        <span class="list-item-price">{{
-          product?.price | currency: "EUR":"symbol"
-        }}</span>
-        <span class="list-item-sku">{{ product?.sku }}</span>
-      </div>
-      <button class="button add-to-cart-btn">
-        Add to cart
-      </button>
+      <app-product-card [product]="product"></app-product-card>
     </li>
   </ul>
 </div>

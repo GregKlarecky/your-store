@@ -17,6 +17,7 @@ import { OrderComponent } from "./order/order.component";
 import { OrderCompleteComponent } from "./order-complete/order-complete.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ProductCardComponent } from './product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     ShippingComponent,
     PaymentComponent,
     OrderComponent,
-    OrderCompleteComponent
+    OrderCompleteComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,

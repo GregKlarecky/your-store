@@ -12,6 +12,8 @@ export class ProductDetailsComponent implements OnInit {
   sizes: number[] = [42, 43, 44, 45, 46, 47];
   productList: IProduct[] = productList;
   product: IProduct;
+  sizesClicked: boolean = false;
+  sizesOpened: boolean = false;
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
@@ -26,5 +28,10 @@ export class ProductDetailsComponent implements OnInit {
       });
       console.log(this.product);
     });
+  }
+
+  openSizes() {
+    this.sizesClicked = true;
+    this.sizesOpened = !this.sizesOpened;
   }
 }

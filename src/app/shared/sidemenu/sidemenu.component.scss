@@ -58,10 +58,20 @@
   color: transparent;
 }
 
-.selected-category {
-  background: #262626;
+.selected-category-background {
+  background: #999999;
+  transition: all 500ms ease-in-out;
+  padding: 18.5px 20px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: -1;
 }
 
 .container {
   padding: 1rem;
+}
+
+.categories-list-wrapper {
+  position: relative;
 }

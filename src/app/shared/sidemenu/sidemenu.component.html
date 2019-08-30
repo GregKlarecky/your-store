@@ -6,29 +6,36 @@
       </div>
       <span>Log in</span>
     </div>
-    <ul
-      class="categories-list"
-      [@cascadeAnimations]="openedCategories"
-      *ngIf="newCategories"
-    >
-      <li
-        class="categories-list-item selected-category"
+    <div class="categories-list-wrapper">
+      <ul
+        class="categories-list"
+        [@cascadeAnimations]="openedCategories"
+        *ngIf="newCategories"
+      >
+        <li
+          class="categories-list-item"
+          *ngIf="rootCategory.id !== 0"
+          (click)="showSubcategoryByParentId(rootCategory.parent)"
+        >
+          <span class="chevron"> <i class="fas fa-chevron-down"></i></span
+          ><span class="category-name">{{ rootCategory.name }}</span>
+        </li>
+        <li
+          class="categories-list-item"
+          *ngFor="let category of openedCategories"
+          (click)="showSubcategoryByParentId(category.id)"
+        >
+          <span class="chevron" [class.transparent]="!category?.children">
+            <i class="fas fa-chevron-right"></i></span
+          ><span class="category-name">{{ category?.name }}</span>
+        </li>
+      </ul>
+      <div
+        class="selected-category-background"
         *ngIf="rootCategory.id !== 0"
-        (click)="showSubcategoryByParentId(rootCategory.parent)"
-      >
-        <span class="chevron"> <i class="fas fa-chevron-down"></i></span
-        ><span class="category-name">{{ rootCategory.name }}</span>
-      </li>
-      <li
-        class="categories-list-item"
-        *ngFor="let category of openedCategories"
-        (click)="showSubcategoryByParentId(category.id)"
-      >
-        <span class="chevron" [class.transparent]="!category?.children">
-          <i class="fas fa-chevron-right"></i></span
-        ><span class="category-name">{{ category?.name }}</span>
-      </li>
-    </ul>
+        [@fadeIn]="rootCategory"
+      ></div>
+    </div>
   </div>
 </div>
 <div class="backdrop" *ngIf="isMenuToggled" (click)="toggleMenu()"></div>

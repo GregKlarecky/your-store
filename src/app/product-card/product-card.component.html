@@ -1,0 +1,17 @@
+<div class="product">
+  <img
+    [src]="'assets/shoes/' + product.image_url"
+    alt=""
+    [routerLink]="['/product', product.name, product.sku]"
+  />
+  <div class="product-details">
+    <span class="product-name">{{ product?.name | uppercase }}</span>
+    <span class="product-sku">{{ product?.sku }}</span>
+    <span class="product-price">{{
+      product?.price | currency: "EUR":"symbol"
+    }}</span>
+  </div>
+  <button class="button add-to-cart-btn">
+    Add to cart
+  </button>
+</div>

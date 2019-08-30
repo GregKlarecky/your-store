@@ -10,7 +10,8 @@ import {
   query,
   style,
   stagger,
-  animate
+  animate,
+  keyframes
 } from "@angular/animations";
 import { tap, delay } from "rxjs/operators";
 
@@ -37,10 +38,26 @@ import { tap, delay } from "rxjs/operators";
           stagger(30, [
             animate(
               "500ms cubic-bezier(0.35, 0, 0.25, 1)",
-              style({ opacity: 0, transform: "translateX(200px)" })
+              style({ opacity: 0, transform: "translateX(70vw)" })
             )
           ])
         ])
+      ])
+    ]),
+    trigger("fadeIn", [
+      transition(":enter", [
+        style({ opacity: 0 }),
+        animate(
+          "750ms",
+          keyframes([
+            style({ opacity: 0, offset: 0.66 }),
+            style({ opacity: 1, offset: 1 })
+          ])
+        )
+      ]),
+      transition(":leave", [
+        style({ opacity: 1 }),
+        animate("400ms linear", style({ opacity: 0 }))
       ])
     ])
   ]
@@ -66,7 +83,7 @@ export class SidemenuComponent implements OnInit {
         tap(() => {
           this.newCategories = false;
         }),
-        delay(500),
+        delay(600),
         tap(categories => {
           this.openedCategories = categories;
           this.newCategories = true;
