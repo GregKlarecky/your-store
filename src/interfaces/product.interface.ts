@@ -3,5 +3,5 @@ export interface IProduct {
   sku: string;
   price: number;
   image_url: string;
-  category_id: number;
+  category_id?: number;
 }

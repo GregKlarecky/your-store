@@ -16,11 +16,17 @@
     </button>
     <div class="size-wrapper">
       <span class="size-select-label">Choose your size:</span>
-      <select name="size" id="size" class="size-select">
-        <option *ngFor="let size of sizes" [value]="size">{{ size }}</option>
-      </select>
+      <input
+        class="size-select"
+        type="radio"
+        name="shoe-size"
+        *ngFor="let size of sizes"
+        [id]="size"
+        [value]="size"
+        [formControl]="productSize"
+      />
       <div class="nice-select" (click)="openSizes()">
-        <span>Wybierz</span>
+        <span>{{ productSize.value }}</span>
         <i class="fas fa-chevron-down"></i>
         <ul
           class="list size-list"
@@ -30,10 +36,14 @@
             'swing-bottom-bck': !sizesOpened && sizesClicked
           }"
         >
-          <li *ngFor="let size of sizes" class="single-size">{{ size }}</li>
+          <li *ngFor="let size of sizes" class="single-size">
+            <label [for]="size">{{ size }}</label>
+          </li>
         </ul>
       </div>
     </div>
-    <button class="button add-to-cart">Add to cart</button>
+    <button class="button add-to-cart" (click)="addToCart()">
+      Add to cart
+    </button>
   </div>
 </div>

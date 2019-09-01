@@ -30,13 +30,4 @@ export class SubcategoryComponent implements OnInit {
       this.getProductListByCategory();
     });
   }
-
-  // ifSameSKu() {
-  //   this.productList.forEach(product => {
-  //     const results = this.productList.filter(item => product.sku === item.sku);
-  //     if (results.length >= 2) {
-  //       console.log(results);
-  //     }
-  //   });
-  // }
 }

@@ -22,6 +22,7 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { StoreModule } from "@ngrx/store";
 import * as fromCart from "./store/reducers/cart.reducers";
 import { environment } from "../environments/environment";
+import { CounterComponent } from './counter/counter.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { environment } from "../environments/environment";
     PaymentComponent,
     OrderComponent,
     OrderCompleteComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,

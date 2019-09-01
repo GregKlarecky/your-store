@@ -6,12 +6,19 @@
         alt="cart item image"
         class="cart-item-image"
       />
-      <div class="cart-item-details">
-        <span class="cart-item-name">{{ item?.name | uppercase }}</span>
-        <span class="cart-item-sku">{{ item?.sku }}</span>
-        <span class="cart-item-price">{{
-          item?.price | currency: "EUR":"symbol"
-        }}</span>
+      <div class="cart-item-panel">
+        <div class="cart-item-details">
+          <span class="cart-item-name">{{ item?.name | uppercase }}</span>
+          <span class="cart-item-sku">{{ item?.sku }}</span>
+          <span class="cart-item-price">{{
+            item?.price | currency: "EUR":"symbol"
+          }}</span>
+          <span class="cart-item-size">SIZE {{ item?.size }}</span>
+          <span class="cart-item-amount">AMOUNT {{ item?.amount }}</span>
+        </div>
+        <div class="cart-item-actions">
+          <app-counter></app-counter>
+        </div>
       </div>
     </li>
   </ul>

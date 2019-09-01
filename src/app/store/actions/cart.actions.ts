@@ -7,6 +7,7 @@ export const addProduct = createAction(
     amount: number;
     price: number;
     sku: string;
-    size?: number;
+    image_url: string;
+    size?: number | string;
   }>()
 );

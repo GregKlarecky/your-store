@@ -84,6 +84,9 @@
   text-transform: none;
   border: 1px solid grey;
   padding: 0.5rem;
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
   span {
     margin-right: 0.5rem;
   }
@@ -97,6 +100,10 @@
     width: 100%;
     .single-size {
       padding: 0.3rem;
+      &:active {
+        background: grey;
+        color: #fff;
+      }
     }
   }
 }

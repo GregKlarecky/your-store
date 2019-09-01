@@ -7,9 +7,40 @@
     height: 300px;
     margin-top: -150px;
   }
+
+  .cart-item-panel {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    .cart-item-actions {
+      align-self: flex-end;
+    }
+  }
+
   .cart-item-details {
     display: flex;
     flex-direction: column;
+    span {
+      color: rgba(0, 0, 0, 0.4);
+      font-size: 0.75rem;
+    }
+    .cart-item-name {
+      color: #000;
+      font-size: 1.2rem;
+    }
+    .cart-item-sku {
+      margin-bottom: 1rem;
+    }
+    .cart-item-price {
+      font-size: 1.3rem;
+      // font-weight: 900;
+      font-family: "Anton", sans-serif;
+      margin-bottom: 1rem;
+    }
+    .cart-item-size {
+      margin-bottom: 0.5rem;
+    }
   }
 }
 .cart-summary {
