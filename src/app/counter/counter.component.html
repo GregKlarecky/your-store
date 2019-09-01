@@ -1,1 +1,10 @@
-<p>counter works!</p>
+<div class="wrapper">
+  <span
+    class="minus"
+    [class.active]="clickedSubtract"
+    (click)="subtractProduct()"
+    >-</span
+  >
+  <span class="amount">{{ amount }}</span>
+  <span class="plus" [class.active]="clickedAdd" (click)="addProduct()">+</span>
+</div>

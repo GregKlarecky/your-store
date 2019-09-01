@@ -10,9 +10,10 @@ import { ICartItem } from "src/interfaces/cart-item.interface";
 })
 export class CartService {
   public items: ICartItem[];
-  public orderline: number = 0;
+  public orderline: number;
 
   constructor(private store: Store<CartState>) {
+    this.orderline = this.getOrdelineFromlocalStorage();
     this.items = this.getCartFromLocalStorage();
   }
 
@@ -34,8 +35,8 @@ export class CartService {
       return;
     }
     this.items.push({ ...item, amount, size });
-    this.saveCartInLocalStorage();
     this.sortItems();
+    this.saveCartInLocalStorage();
   }
 
   public searchForProduct(cartId: string): ICartItem {
@@ -57,17 +58,22 @@ export class CartService {
 
   public stampProduct(product: IProduct, size) {
     product["cartId"] = product.sku + size.toString();
-    product["orderline"] = this.orderline++;
+    if ((product as ICartItem).orderline) {
+      product["orderline"] = (product as ICartItem).orderline;
+    } else {
+      product["orderline"] = this.orderline++;
+      this.saveLastOrderlineInLocalStorage();
+    }
     return product;
   }
 
   public getItems() {
-    console.log(this.items);
+    console.log(this.items.map(item => item.orderline));
     return this.items ? this.items.slice(0) : [];
   }
 
   public sortItems() {
-    return this.items.sort((a, b) => a.timeStamp - b.timeStamp);
+    this.items = this.items.sort((a, b) => a.orderline - b.orderline);
   }
 
   public subtractFromCart(
@@ -82,10 +88,13 @@ export class CartService {
       if (product.amount > 1) {
         product.amount = product.amount - amount;
         this.items.splice(index, 1, product);
+        this.sortItems();
         this.saveCartInLocalStorage();
         return;
       }
       this.deleteProduct(product.cartId);
+      this.sortItems();
+      this.saveCartInLocalStorage();
     }
   }
 
@@ -96,5 +105,14 @@ export class CartService {
   getCartFromLocalStorage() {
     const items = localStorage.getItem("cart");
     return items ? JSON.parse(items) : [];
+  }
+
+  saveLastOrderlineInLocalStorage() {
+    localStorage.setItem("caartId", JSON.stringify(this.orderline));
+  }
+
+  getOrdelineFromlocalStorage() {
+    const orderline = +JSON.parse(localStorage.getItem("caartId"));
+    return orderline ? orderline : 0;
   }
 }

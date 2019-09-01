@@ -1,0 +1,39 @@
+.wrapper {
+  margin: 0.5rem 1.5rem 2.9rem 0;
+  display: flex;
+}
+span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 2rem;
+  font-size: 1.2rem;
+  border: 1px solid grey;
+  color: grey;
+  font-weight: bold;
+  &:not(.amount) {
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+}
+
+.amount {
+  border: none;
+  font-weight: normal;
+}
+
+.active {
+  animation: flash 500ms ease-in-out;
+}
+
+@keyframes flash {
+  50% {
+    background: grey;
+    color: #fff;
+  }
+  100% {
+    background: #fff;
+    color: grey;
+  }
+}

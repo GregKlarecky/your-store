@@ -99,7 +99,10 @@
     left: 0rem;
     width: 100%;
     .single-size {
-      padding: 0.3rem;
+      label {
+        display: block;
+        padding: 0.3rem;
+      }
       &:active {
         background: grey;
         color: #fff;

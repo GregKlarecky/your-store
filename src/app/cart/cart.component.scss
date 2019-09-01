@@ -1,8 +1,9 @@
 .cart-item {
-  height: 175px;
+  height: 200px;
   overflow: hidden;
   display: flex;
   background: #fff;
+  padding: 15px 0;
   .cart-item-image {
     height: 300px;
     margin-top: -150px;
@@ -34,7 +35,6 @@
     }
     .cart-item-price {
       font-size: 1.3rem;
-      // font-weight: 900;
       font-family: "Anton", sans-serif;
       margin-bottom: 1rem;
     }
@@ -47,4 +47,9 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem;
+}
+
+hr {
+  margin: 0 auto;
+  width: 90vw;
 }
