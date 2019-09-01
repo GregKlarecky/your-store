@@ -1,6 +1,20 @@
 <div class="container">
-  <ul class="list cart-list">
-    <li *ngFor="let item of cartItems; let last = last; trackBy: trackByFn">
+  <ng-template #empty>
+    <div class="empty">
+      <i class="far fa-meh-rolling-eyes"></i>
+      <span> Your cart is empty</span>
+    </div>
+  </ng-template>
+
+  <ul
+    class="list cart-list"
+    *ngIf="cartItems.length; else empty"
+    [@removeItem]="'true'"
+  >
+    <li
+      *ngFor="let item of cartItems; let last = last; trackBy: trackByFn"
+      [@removeItem]="'true'"
+    >
       <div class="cart-item">
         <img
           [src]="'assets/shoes/' + item.image_url"

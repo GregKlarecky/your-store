@@ -66,3 +66,31 @@ hr {
 .cart-list {
   padding-bottom: $height-cart-summary;
 }
+
+.empty {
+  position: absolute;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.05);
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 400px;
+  span {
+    font-size: 2rem;
+  }
+  animation: fadeIn 1000ms ease;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
