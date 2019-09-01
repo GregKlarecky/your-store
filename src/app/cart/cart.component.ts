@@ -1,22 +1,27 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { IProduct } from "src/interfaces/product.interface";
 import { productList } from "../subcategory/product-list.helper";
 import { CartService } from "../services/cart.service";
 import { ICartItem } from "src/interfaces/cart-item.interface";
+import { FooterService } from "../services/footer.service";
 
 @Component({
   selector: "app-cart",
   templateUrl: "./cart.component.html",
   styleUrls: ["./cart.component.scss"]
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
   cartItems: ICartItem[];
   productList: IProduct[] = productList;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private footerService: FooterService
+  ) {}
 
   ngOnInit() {
     this.getShoppingList();
+    this.footerService.showFooter.next(false);
   }
 
   getShoppingList() {
@@ -42,5 +47,9 @@ export class CartComponent implements OnInit {
 
   trackByFn(orderlist, item) {
     return item.orderline;
+  }
+
+  ngOnDestroy() {
+    this.footerService.showFooter.next(true);
   }
 }
