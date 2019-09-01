@@ -112,7 +112,7 @@ export class CartService {
   }
 
   getOrdelineFromlocalStorage() {
-    const orderline = +JSON.parse(localStorage.getItem("caartId"));
-    return orderline ? orderline : 0;
+    let orderline = +JSON.parse(localStorage.getItem("caartId"));
+    return orderline ? ++orderline : 0;
   }
 }
