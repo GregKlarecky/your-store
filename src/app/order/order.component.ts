@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { productList } from "../subcategory/product-list.helper";
 import { IProduct } from "src/interfaces/product.interface";
+import { CartService } from "../services/cart.service";
 
 @Component({
   selector: "app-order",
@@ -11,14 +12,10 @@ export class OrderComponent implements OnInit {
   cartItems: IProduct[];
   productList: IProduct[] = productList;
 
-  constructor() {}
+  constructor(private cartService: CartService) {}
 
   ngOnInit() {
-    this.getShoppingList();
-  }
-
-  getShoppingList() {
-    this.cartItems = this.productList.slice(0, 5);
+    this.cartItems = this.cartService.getItems();
   }
 
   get totalCost(): number {

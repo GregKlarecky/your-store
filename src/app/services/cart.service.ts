@@ -4,6 +4,7 @@ import { ICartItem } from "src/interfaces/cart-item.interface";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { AddToCartComponent } from "../add-to-cart/add-to-cart.component";
 import { CustomModalService } from "./custom-modal.service";
+import { IAddress } from "src/interfaces/address.interface";
 
 @Injectable({
   providedIn: "root"
@@ -11,14 +12,13 @@ import { CustomModalService } from "./custom-modal.service";
 export class CartService {
   public items: ICartItem[];
   public orderline: number;
+  public address: IAddress;
 
   constructor(
     private modalService: NgbModal,
     private customModalService: CustomModalService
   ) {
-    this.orderline = this.getOrdelineFromlocalStorage();
-    this.items = this.getCartFromLocalStorage();
-    // this.openModal();
+    this.getCartStateFromLocalStorage();
   }
 
   public addToCart(
@@ -111,18 +111,17 @@ export class CartService {
     localStorage.setItem("cart-ys", JSON.stringify(this.items));
   }
 
-  getCartFromLocalStorage() {
+  getCartStateFromLocalStorage() {
     const items = localStorage.getItem("cart-ys");
-    return items ? JSON.parse(items) : [];
+    this.items = items ? JSON.parse(items) : [];
+    let orderline = +JSON.parse(localStorage.getItem("cartId"));
+    this.orderline = orderline ? ++orderline : 0;
+    let address = JSON.parse(localStorage.getItem("address-ys"));
+    this.address = address;
   }
 
   saveLastOrderlineInLocalStorage() {
-    localStorage.setItem("caartId", JSON.stringify(this.orderline));
-  }
-
-  getOrdelineFromlocalStorage() {
-    let orderline = +JSON.parse(localStorage.getItem("caartId"));
-    return orderline ? ++orderline : 0;
+    localStorage.setItem("cartId", JSON.stringify(this.orderline));
   }
 
   public openModal(item: ICartItem) {
@@ -132,5 +131,20 @@ export class CartService {
       backdrop: false
     });
     modalRef.componentInstance.item = item;
+  }
+
+  public setAddress(address: IAddress) {
+    this.address = address;
+    localStorage.setItem("address-ys", JSON.stringify(this.address));
+  }
+
+  public getAddress() {
+    return Object.assign({}, this.address);
+  }
+
+  clearLocalStorage() {
+    localStorage.removeItem("address-ys");
+    localStorage.removeItem("cart-ys");
+    localStorage.removeItem("cartId");
   }
 }

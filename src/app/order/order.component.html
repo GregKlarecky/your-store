@@ -1,18 +1,7 @@
 <div class="container">
   <ul class="list cart-list">
     <li class="cart-item" *ngFor="let item of cartItems">
-      <img
-        [src]="'assets/shoes/' + item.image_url"
-        alt="cart item image"
-        class="cart-item-image"
-      />
-      <div class="cart-item-details">
-        <span class="cart-item-name">{{ item?.name | uppercase }}</span>
-        <span class="cart-item-sku">{{ item?.sku }}</span>
-        <span class="cart-item-price">{{
-          item?.price | currency: "EUR":"symbol"
-        }}</span>
-      </div>
+      <app-cart-item [item]="item" [counter]="false"></app-cart-item>
     </li>
   </ul>
   <div class="cart-summary">

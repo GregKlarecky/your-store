@@ -9,10 +9,20 @@
     <app-cart-item [item]="item" [counter]="false"></app-cart-item>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="close()">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="close()"
+      [routerLink]="['/subcategory', item.category_id]"
+    >
       Continue shopping
     </button>
-    <button type="button" class="btn btn-outline-dark" (click)="close()">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="close()"
+      [routerLink]="['/cart']"
+    >
       Go to cart
     </button>
   </div>
