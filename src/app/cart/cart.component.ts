@@ -57,17 +57,12 @@ export class CartComponent implements OnInit, OnDestroy {
       : 0;
   }
 
-  onAdd(item, amount, size) {
-    this.cartService.addToCart(item, amount, size);
-    this.cartItems = this.cartService.getItems();
-  }
-  onSubtract(item, amount, size) {
-    this.cartService.subtractFromCart(item, amount, size);
-    this.cartItems = this.cartService.getItems();
-  }
-
   trackByFn(orderlist, item) {
     return item.orderline;
+  }
+
+  onItemsChange($event) {
+    this.cartItems = $event;
   }
 
   ngOnDestroy() {

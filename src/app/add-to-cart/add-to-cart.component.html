@@ -1,0 +1,19 @@
+<div @slideDown *ngIf="show" class="modal-wrapper">
+  <div class="modal-header">
+    <h4 class="modal-title">You added new product to cart</h4>
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-cart-item [item]="item" [counter]="false"></app-cart-item>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="close()">
+      Continue shopping
+    </button>
+    <button type="button" class="btn btn-outline-dark" (click)="close()">
+      Go to cart
+    </button>
+  </div>
+</div>

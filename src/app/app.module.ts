@@ -22,7 +22,10 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { StoreModule } from "@ngrx/store";
 import * as fromCart from "./store/reducers/cart.reducers";
 import { environment } from "../environments/environment";
-import { CounterComponent } from './counter/counter.component';
+import { CounterComponent } from "./counter/counter.component";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { AddToCartComponent } from "./add-to-cart/add-to-cart.component";
+import { CartItemComponent } from './cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { CounterComponent } from './counter/counter.component';
     OrderComponent,
     OrderCompleteComponent,
     ProductCardComponent,
-    CounterComponent
+    CounterComponent,
+    AddToCartComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
@@ -51,9 +56,11 @@ import { CounterComponent } from './counter/counter.component';
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production // Restrict extension to log-only mode
-    })
+    }),
+    NgbModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddToCartComponent]
 })
 export class AppModule {}

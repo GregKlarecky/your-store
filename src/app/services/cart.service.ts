@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
-import { CartState } from "../store/reducers/cart.reducers";
-import { Store } from "@ngrx/store";
-import * as fromCart from "../store/actions/cart.actions";
 import { IProduct } from "src/interfaces/product.interface";
 import { ICartItem } from "src/interfaces/cart-item.interface";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { AddToCartComponent } from "../add-to-cart/add-to-cart.component";
+import { CustomModalService } from "./custom-modal.service";
 
 @Injectable({
   providedIn: "root"
@@ -12,29 +12,33 @@ export class CartService {
   public items: ICartItem[];
   public orderline: number;
 
-  constructor(private store: Store<CartState>) {
+  constructor(
+    private modalService: NgbModal,
+    private customModalService: CustomModalService
+  ) {
     this.orderline = this.getOrdelineFromlocalStorage();
     this.items = this.getCartFromLocalStorage();
+    // this.openModal();
   }
 
   public addToCart(
     item: IProduct,
     amount: number = 1,
-    size: number | string
+    size: number | string,
+    showModal: boolean = true
   ): void {
-    if (size === "Wybierz") {
-      alert("Wybierz rozmiar!");
-      return;
-    }
-
     item = this.stampProduct(item, size);
     const oldProduct = this.searchForProduct((item as ICartItem).cartId);
 
     if (oldProduct) {
-      this.mergeItems(oldProduct, amount, size);
+      this.mergeItems(oldProduct, amount, size, showModal);
       return;
     }
-    this.items.push({ ...item, amount, size });
+    const product = { ...item, amount, size };
+    this.items.push(product);
+    if (showModal) {
+      this.openModal(product);
+    }
     this.sortItems();
     this.saveCartInLocalStorage();
   }
@@ -50,10 +54,15 @@ export class CartService {
     this.saveCartInLocalStorage();
   }
 
-  public mergeItems(oldProduct: ICartItem, amount, size): void {
+  public mergeItems(
+    oldProduct: ICartItem,
+    amount,
+    size,
+    showModal: boolean
+  ): void {
     const totalAmount = oldProduct.amount + amount;
     this.deleteProduct(oldProduct.cartId);
-    this.addToCart(oldProduct, totalAmount, size);
+    this.addToCart(oldProduct, totalAmount, size, showModal);
   }
 
   public stampProduct(product: IProduct, size) {
@@ -99,11 +108,11 @@ export class CartService {
   }
 
   saveCartInLocalStorage() {
-    localStorage.setItem("cart", JSON.stringify(this.items));
+    localStorage.setItem("cart-ys", JSON.stringify(this.items));
   }
 
   getCartFromLocalStorage() {
-    const items = localStorage.getItem("cart");
+    const items = localStorage.getItem("cart-ys");
     return items ? JSON.parse(items) : [];
   }
 
@@ -114,5 +123,14 @@ export class CartService {
   getOrdelineFromlocalStorage() {
     let orderline = +JSON.parse(localStorage.getItem("caartId"));
     return orderline ? ++orderline : 0;
+  }
+
+  public openModal(item: ICartItem) {
+    this.customModalService.backdropSubject.next(true);
+    const modalRef = this.modalService.open(AddToCartComponent, {
+      windowClass: "add-to-cart-modal",
+      backdrop: false
+    });
+    modalRef.componentInstance.item = item;
   }
 }

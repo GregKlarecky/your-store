@@ -15,27 +15,10 @@
       *ngFor="let item of cartItems; let last = last; trackBy: trackByFn"
       [@removeItem]="'true'"
     >
-      <div class="cart-item">
-        <img
-          [src]="'assets/shoes/' + item.image_url"
-          alt="cart item image"
-          class="cart-item-image"
-        />
-        <div class="cart-item-details">
-          <span class="cart-item-name">{{ item?.name | uppercase }}</span>
-          <span class="cart-item-sku">{{ item?.sku }}</span>
-          <span class="cart-item-price">{{
-            item?.price | currency: "EUR":"symbol"
-          }}</span>
-          <span class="cart-item-size">SIZE: {{ item?.size }}</span>
-          <span class="cart-item-amount">AMOUNT:</span>
-          <app-counter
-            [amount]="item.amount"
-            (add)="onAdd(item, $event, item.size)"
-            (subtract)="onSubtract(item, $event, item.size)"
-          ></app-counter>
-        </div>
-      </div>
+      <app-cart-item
+        [item]="item"
+        (itemsChange)="onItemsChange($event)"
+      ></app-cart-item>
       <hr *ngIf="!last" />
     </li>
   </ul>

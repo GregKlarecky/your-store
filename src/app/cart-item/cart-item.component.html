@@ -1,0 +1,25 @@
+<div class="cart-item">
+  <img
+    [src]="'assets/shoes/' + item.image_url"
+    alt="cart item image"
+    class="cart-item-image"
+  />
+  <div class="cart-item-details">
+    <span class="cart-item-name">{{ item?.name | uppercase }}</span>
+    <span class="cart-item-sku">{{ item?.sku }}</span>
+    <span class="cart-item-price">{{
+      item?.price | currency: "EUR":"symbol"
+    }}</span>
+    <span class="cart-item-size">SIZE: {{ item?.size }}</span>
+    <div class="counter">
+      <span class="cart-item-amount">AMOUNT:</span>
+      <app-counter
+        *ngIf="counter"
+        [amount]="item.amount"
+        (add)="onAdd(item, $event, item.size)"
+        (subtract)="onSubtract(item, $event, item.size)"
+      ></app-counter>
+      <span *ngIf="!counter" class="cart-item-amount">{{ item.amount }}</span>
+    </div>
+  </div>
+</div>

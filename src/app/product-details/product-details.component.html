@@ -15,7 +15,11 @@
       <i class="fas fa-list"></i><span> Description</span>
     </button>
     <div class="size-wrapper">
-      <span class="size-select-label">Choose your size:</span>
+      <span
+        class="size-select-label"
+        [class.red-text]="!productSize.valid && touched"
+        >Choose your size:</span
+      >
       <input
         class="size-select"
         type="radio"
@@ -25,7 +29,11 @@
         [value]="size"
         [formControl]="productSize"
       />
-      <div class="nice-select" (click)="openSizes()">
+      <div
+        class="nice-select"
+        (click)="openSizes()"
+        [class.red-border]="!productSize.valid && touched"
+      >
         <span>{{ productSize.value }}</span>
         <i class="fas fa-chevron-down"></i>
         <ul

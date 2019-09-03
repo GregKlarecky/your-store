@@ -1,13 +1,18 @@
+@import "~src/assets/styles/variables";
+
 .container {
+  padding: 0;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .product {
   &-details {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0 1rem 1rem 1rem;
+    padding: 0 1.5rem 1.5rem 1.5rem;
     align-items: flex-start;
   }
   &-sku {
@@ -22,8 +27,8 @@
     font-weight: bold;
   }
   &-price {
-    font-size: 2rem;
-    color: #ff554a;
+    font-size: 3rem;
+    color: $store-red;
     margin-bottom: 0.5rem;
   }
   &-delivery {
@@ -47,6 +52,7 @@
     .size-select-label {
       margin-bottom: 0.5rem;
       font-size: 0.7rem;
+      transition: border 200ms;
     }
   }
 }
@@ -73,6 +79,10 @@
   font-size: 1.2rem;
   padding: 16px 20px;
   width: 100%;
+  transition: 200ms ease-in-out;
+  &:active {
+    background: rgba(0, 0, 0, 0.3);
+  }
 }
 
 .size-select {
@@ -87,6 +97,8 @@
   width: 100px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  transition: border 200ms;
   span {
     margin-right: 0.5rem;
   }
@@ -109,6 +121,33 @@
       }
     }
   }
+}
+
+.red-border {
+  border: 1px solid $store-red;
+  animation: redShadow 500ms ease-in-out;
+}
+
+@keyframes redShadow {
+  0% {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+  50% {
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(255, 85, 74, 0.7);
+    -moz-box-shadow: 0px 0px 2px 0px rgba(255, 85, 74, 0.7);
+    box-shadow: 0px 0px 2px 0px rgba(255, 85, 74, 0.7);
+  }
+  100% {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+.red-text {
+  color: $store-red-lighter;
 }
 
 /* ----------------------------------------------
