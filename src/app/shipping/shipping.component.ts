@@ -57,10 +57,17 @@ export class ShippingComponent implements OnInit {
     return this.shippingForm.get("contact").get("email");
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.setValue();
+  }
 
   onSubmit() {
     this.cartService.setAddress(this.shippingForm.value);
     this.router.navigate(["/checkout", "payment"]);
+  }
+
+  public setValue() {
+    const savedAddress = localStorage.getItem("address-ys");
+    this.shippingForm.setValue(JSON.parse(savedAddress));
   }
 }
