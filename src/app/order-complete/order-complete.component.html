@@ -1,3 +1,9 @@
-<div class="container-padding">
-  <p>Dziękujemy za złożenie zamówienia</p>
+<div class="container-padding order-complete-container router-outlet">
+  <div class="face">
+    <i class="far fa-laugh-beam"></i>
+    <p>Dziękujemy za złożenie zamówienia</p>
+  </div>
+  <button class="button checkout-button" [routerLink]="['/']">
+    Go back to shop
+  </button>
 </div>

@@ -11,5 +11,6 @@ export class OrderCompleteComponent implements OnInit {
 
   ngOnInit() {
     this.cartService.clearLocalStorage();
+    this.cartService.emptyCart();
   }
 }

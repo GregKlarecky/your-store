@@ -83,6 +83,10 @@ export class CartService {
     return this.items ? this.items.slice(0) : [];
   }
 
+  public emptyCart() {
+    this.items = [];
+  }
+
   public sortItems() {
     this.items = this.items.sort((a, b) => a.orderline - b.orderline);
   }

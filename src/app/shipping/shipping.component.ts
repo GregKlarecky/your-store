@@ -68,6 +68,8 @@ export class ShippingComponent implements OnInit {
 
   public setValue() {
     const savedAddress = localStorage.getItem("address-ys");
-    this.shippingForm.setValue(JSON.parse(savedAddress));
+    if (savedAddress) {
+      this.shippingForm.setValue(JSON.parse(savedAddress));
+    }
   }
 }
