@@ -1,13 +1,30 @@
 <div class="container">
   <ul class="list cart-list">
-    <li class="cart-item" *ngFor="let item of cartItems">
+    <li *ngFor="let item of cartItems; let last = last">
       <app-cart-item [item]="item" [counter]="false"></app-cart-item>
+      <hr *ngIf="!last" />
     </li>
   </ul>
   <div class="cart-summary">
-    <div class="quote">
-      <span>Total amount: </span
-      ><span>{{ totalCost | currency: "EUR":"symbol" }}</span>
+    <div class="block">
+      <h4>Total amount:</h4>
+      <span>{{ totalCost | currency: "EUR":"symbol" }}</span>
+    </div>
+    <div class="block">
+      <h4>Delivery address:</h4>
+      <div>{{ address.firstName }}</div>
+      <div>{{ address.lastName }}</div>
+      <div>{{ address.address.street }}</div>
+      <div>{{ address.address.city }}</div>
+      <div>{{ address.address.zip }}</div>
+    </div>
+    <div class="block">
+      <h4>Payment method:</h4>
+      <span>{{ payment }}</span>
+    </div>
+    <div class="block">
+      <h4>Delivery:</h4>
+      <span>{{ delivery }}</span>
     </div>
     <button
       class="button step-back-button w-100"

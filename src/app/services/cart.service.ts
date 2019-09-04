@@ -152,7 +152,7 @@ export class CartService {
     this.deliveryAndPayment = deliveryAndPayment;
     localStorage.setItem(
       "delivery-and-payment-ys",
-      JSON.stringify(this.address)
+      JSON.stringify(deliveryAndPayment)
     );
   }
 
