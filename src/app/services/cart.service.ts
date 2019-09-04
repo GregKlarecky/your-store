@@ -5,6 +5,7 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { AddToCartComponent } from "../add-to-cart/add-to-cart.component";
 import { CustomModalService } from "./custom-modal.service";
 import { IAddress } from "src/interfaces/address.interface";
+import { IDeliveryAndPayment } from "src/interfaces/delivery-payment.interface";
 
 @Injectable({
   providedIn: "root"
@@ -13,6 +14,7 @@ export class CartService {
   public items: ICartItem[];
   public orderline: number;
   public address: IAddress;
+  public deliveryAndPayment: IDeliveryAndPayment;
 
   constructor(
     private modalService: NgbModal,
@@ -118,6 +120,10 @@ export class CartService {
     this.orderline = orderline ? ++orderline : 0;
     let address = JSON.parse(localStorage.getItem("address-ys"));
     this.address = address;
+    let deliveryAndPayment = JSON.parse(
+      localStorage.getItem("delivery-and-payment-ys")
+    );
+    this.deliveryAndPayment = deliveryAndPayment;
   }
 
   saveLastOrderlineInLocalStorage() {
@@ -142,9 +148,22 @@ export class CartService {
     return Object.assign({}, this.address);
   }
 
+  public setDeliveryAndPayment(deliveryAndPayment: IDeliveryAndPayment) {
+    this.deliveryAndPayment = deliveryAndPayment;
+    localStorage.setItem(
+      "delivery-and-payment-ys",
+      JSON.stringify(this.address)
+    );
+  }
+
+  public getDeliveryAndPayment() {
+    return Object.assign({}, this.deliveryAndPayment);
+  }
+
   clearLocalStorage() {
     localStorage.removeItem("address-ys");
     localStorage.removeItem("cart-ys");
     localStorage.removeItem("cartId");
+    localStorage.removeItem("delivery-and-payment-ys");
   }
 }

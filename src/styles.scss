@@ -64,6 +64,10 @@ body {
   transition: 200ms;
 }
 
+.disabled {
+  background: rgba(0, 0, 0, 0.6);
+}
+
 .w-100 {
   width: 100%;
 }
@@ -84,6 +88,14 @@ body {
   -webkit-box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.3) !important;
   -moz-box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.3) !important;
   box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.3) !important;
+}
+
+.selected {
+  border: 1px solid #ffdb4d;
+  -webkit-box-shadow: 0px 2px 6px 1px #ffdb4d !important;
+  -moz-box-shadow: 0px 2px 6px 1px #ffdb4d !important;
+  box-shadow: 0px 2px 6px 1px #ffdb4d !important;
+  transition: 200ms ease;
 }
 
 .container {

@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder } from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { paymentyOptions } from "./payment-options";
 import { deliveryOptions } from "./delivery-options";
+import { CartService } from "../services/cart.service";
 
 @Component({
   selector: "app-payment",
@@ -13,15 +14,28 @@ export class PaymentComponent implements OnInit {
   public paymentOptions: any[] = paymentyOptions;
   public deliveryOptions: any[] = deliveryOptions;
   public paymentForm = this.fb.group({
-    payment: [""],
-    delivery: [""]
+    paymentInput: ["", Validators.required],
+    deliveryInput: ["", Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private cartService: CartService
+  ) {}
+
+  get deliveryInput() {
+    return this.paymentForm.get("deliveryInput");
+  }
+
+  get paymentInput() {
+    return this.paymentForm.get("paymentInput");
+  }
 
   ngOnInit() {}
 
   onSubmit() {
+    this.cartService.setDeliveryAndPayment(this.paymentForm.value);
     this.router.navigate(["/checkout", "order"]);
   }
 }

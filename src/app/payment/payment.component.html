@@ -1,16 +1,20 @@
 <div class="container-padding">
-  <h1>Delivery and payment</h1>
-  <form [formGroup]="paymentForm" (submit)="onSubmit()">
-    <h3>Delivery options</h3>
+  <h1 class="header">Delivery and payment</h1>
+  <form [formGroup]="paymentForm">
+    <h3 class="header-option">Delivery options:</h3>
     <div class="form-group" *ngFor="let delivery of deliveryOptions">
       <input
         type="radio"
-        formControlName="delivery"
+        formControlName="deliveryInput"
         [value]="delivery.name"
         [id]="delivery.name"
-        name="delivery"
+        name="deliveryInput"
       />
-      <label [for]="delivery.name" class="shadow">
+      <label
+        [for]="delivery.name"
+        class="shadow"
+        [class.selected]="deliveryInput.value === delivery.name"
+      >
         <img *ngIf="delivery.imageSrc" [src]="delivery.imageSrc" alt="" />
         <i *ngIf="delivery.iconClass" [class]="delivery.iconClass"></i>
         <span>
@@ -19,16 +23,20 @@
       </label>
     </div>
 
-    <h3>Payment options</h3>
+    <h3 class="header-option">Payment options:</h3>
     <div class="form-group" *ngFor="let payment of paymentOptions">
       <input
         type="radio"
-        formControlName="payment"
+        formControlName="paymentInput"
         [value]="payment.name"
         [id]="payment.name"
-        name="payment"
+        name="paymentInput"
       />
-      <label [for]="payment.name" class="shadow">
+      <label
+        [for]="payment.name"
+        class="shadow"
+        [class.selected]="paymentInput.value === payment.name"
+      >
         <img
           *ngIf="payment.imageSrc"
           [src]="payment.imageSrc"
@@ -44,9 +52,18 @@
     <button
       class="button step-back-button w-100"
       [routerLink]="['/checkout', 'shipping']"
+      type="button"
     >
       Go back
     </button>
-    <button class="button checkout-button w-100">Continue</button>
+    <button
+      type="submit"
+      class="button checkout-button w-100"
+      [class.disabled]="!paymentForm.valid"
+      (click)="onSubmit()"
+      [disabled]="!paymentForm.valid"
+    >
+      Continue
+    </button>
   </form>
 </div>
