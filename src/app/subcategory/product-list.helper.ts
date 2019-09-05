@@ -397,10 +397,66 @@ export const productList: IProduct[] = [
     category_id: 22
   },
   {
+    name: "rey",
+    sku: "DB-0755-9900-0a",
+    price: 39.9,
+    image_url: "DBI550-778-0755-9900-0a.jpg",
+    category_id: 25
+  },
+  {
+    name: "savona",
+    sku: "DBI696-CX400-0a",
+    price: 49.9,
+    image_url: "DBI696-CX4-0755-9900-0a.jpg",
+    category_id: 25
+  },
+  {
     name: "lanza",
+    sku: "DBI0707-9999-0a",
+    price: 69.9,
+    image_url: "DBI705-CN5-0707-9999-0a.jpg",
+    category_id: 25
+  },
+  {
+    name: "liya",
+    sku: "DBI774--2500-0a",
+    price: 59.9,
+    image_url: "DBI774-CS1-4K00-2500-0a.jpg",
+    category_id: 25
+  },
+  {
+    name: "mizuki",
+    sku: "DB-0686-9900-0a",
+    price: 79.9,
+    image_url: "DBI774-CT4-0686-9900-0a.jpg",
+    category_id: 25
+  },
+  {
+    name: "lanza",
+    sku: "DBI809-C9900-0a",
+    price: 89.9,
+    image_url: "DBI809-CN8-0581-9900-0a.jpg",
+    category_id: 25
+  },
+  {
+    name: "kaula",
+    sku: "D3-4900-9900-0a",
+    price: 49.9,
+    image_url: "DSI584-CX3-4900-9900-0a.jpg",
+    category_id: 25
+  },
+  {
+    name: "yoko",
+    sku: "DSI7805-7700-0a",
+    price: 39.9,
+    image_url: "DSI780-CN5-0755-7700-0a.jpg",
+    category_id: 25
+  },
+  {
+    name: "rumi",
     sku: "GEO8224",
     price: 49.9,
     image_url: "GEO224D050AUC0829a.jpg",
-    category_id: 54
+    category_id: 25
   }
 ];
