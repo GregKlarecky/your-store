@@ -537,6 +537,34 @@ export const productList: IProduct[] = [
     category_id: 29
   },
   {
+    name: "belt",
+    sku: "AD0334-HIL-Xa",
+    price: 19.9,
+    image_url: "AD0334-HIL-GGGG-5700-Xa.jpg",
+    category_id: 30
+  },
+  {
+    name: "belt",
+    sku: "AD000-9900-Xa",
+    price: 24.9,
+    image_url: "AD0623-000-BL00-9900-Xa.jpg",
+    category_id: 30
+  },
+  {
+    name: "belt",
+    sku: "AD06849900-Xa",
+    price: 19.9,
+    image_url: "AD0684-000-BG00-9900-Xa.jpg",
+    category_id: 30
+  },
+  {
+    name: "belt",
+    sku: "AD0685-900-Xa",
+    price: 24.9,
+    image_url: "AD0685-000-BT00-9900-Xa.jpg",
+    category_id: 30
+  },
+  {
     name: "rumi",
     sku: "GEO8224",
     price: 49.9,
