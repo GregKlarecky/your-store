@@ -481,6 +481,34 @@ export const productList: IProduct[] = [
     category_id: 27
   },
   {
+    name: "scarf",
+    sku: "A-TKTK-0488-Xa",
+    price: 9.9,
+    image_url: "AA0008-090-TKTK-0488-Xa.jpg",
+    category_id: 28
+  },
+  {
+    name: "scarf",
+    sku: "AA000K-4399-Xa",
+    price: 19.9,
+    image_url: "AA0008-090-TKTK-4399-Xa.jpg",
+    category_id: 28
+  },
+  {
+    name: "scarf",
+    sku: "AA0KTK-4399-Xa",
+    price: 9.9,
+    image_url: "AA0011-090-TKTK-4399-Xa.jpg",
+    category_id: 28
+  },
+  {
+    name: "scarf",
+    sku: "AA0011-8399-Xa",
+    price: 19.9,
+    image_url: "AA0011-090-TKTK-8399-Xa.jpg",
+    category_id: 28
+  },
+  {
     name: "rumi",
     sku: "GEO8224",
     price: 49.9,
