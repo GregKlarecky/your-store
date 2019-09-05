@@ -453,6 +453,34 @@ export const productList: IProduct[] = [
     category_id: 25
   },
   {
+    name: "wash bag",
+    sku: "AFV30-3700-Xa",
+    price: 19.9,
+    image_url: "AFV376-03S-DF00-3700-Xa.jpg",
+    category_id: 27
+  },
+  {
+    name: "wash bag",
+    sku: "AFV444-900-Xa",
+    price: 29.9,
+    image_url: "AFV444-000-BG00-9900-Xa.jpg",
+    category_id: 27
+  },
+  {
+    name: "wash bag",
+    sku: "AFV446-000-Ba",
+    price: 39.9,
+    image_url: "AFV446-000-BG00-9900-Xa.jpg",
+    category_id: 27
+  },
+  {
+    name: "wash bag",
+    sku: "AFV4849900-Xa",
+    price: 29.9,
+    image_url: "AFV484-000-BT00-9900-Xa.jpg",
+    category_id: 27
+  },
+  {
     name: "rumi",
     sku: "GEO8224",
     price: 49.9,
