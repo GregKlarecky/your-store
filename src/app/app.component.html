@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="content" [class.disabled-scroll]="disableScroll">
-  <div class="wrapper">
-    <router-outlet></router-outlet>
+  <div class="wrapper" [@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
   </div>
   <app-footer></app-footer>
 </div>

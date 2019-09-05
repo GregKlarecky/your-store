@@ -14,6 +14,7 @@
     flex-direction: column;
     padding: 0 1.5rem 1.5rem 1.5rem;
     align-items: flex-start;
+    min-height: 434px;
   }
   &-sku {
     font-size: 0.8rem;
@@ -40,6 +41,7 @@
   }
   &-image {
     margin-top: -160px;
+    min-height: 573px;
   }
   .size-wrapper {
     display: flex;

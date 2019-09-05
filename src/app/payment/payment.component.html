@@ -1,6 +1,6 @@
 <div class="container-padding">
   <h1 class="header">Delivery and payment</h1>
-  <form [formGroup]="paymentForm">
+  <form [formGroup]="paymentForm" (submit)="onSubmit()">
     <h3 class="header-option">Delivery options:</h3>
     <div class="form-group" *ngFor="let delivery of deliveryOptions">
       <input
@@ -60,7 +60,6 @@
       type="submit"
       class="button checkout-button w-100"
       [class.disabled]="!paymentForm.valid"
-      (click)="onSubmit()"
       [disabled]="!paymentForm.valid"
     >
       Continue

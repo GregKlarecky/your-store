@@ -15,6 +15,7 @@ export class SubcategoryComponent implements OnInit {
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.getCategoryId();
   }
 

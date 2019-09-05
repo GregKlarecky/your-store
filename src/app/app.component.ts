@@ -4,12 +4,15 @@ import { CustomModalService } from "./services/custom-modal.service";
 import { trigger, transition, style, animate } from "@angular/animations";
 import { BaseComponent } from "./shared/base/base.component";
 import { takeUntil } from "rxjs/operators";
+import { RouterOutlet } from "@angular/router";
+import { slideInAnimation } from "./route-animation";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
   animations: [
+    slideInAnimation,
     trigger("fade", [
       transition(":enter", [
         style({ opacity: 0 }),
@@ -48,6 +51,14 @@ export class AppComponent extends BaseComponent implements OnInit, OnDestroy {
     this.customModalService.backdropSubject.subscribe(toggle => {
       this.isBackdropToggled = toggle;
     });
+  }
+
+  prepareRoute(outlet: RouterOutlet) {
+    return (
+      outlet &&
+      outlet.activatedRouteData &&
+      outlet.activatedRouteData["animation"]
+    );
   }
 
   ngOnDestroy() {

@@ -56,10 +56,15 @@
         >
       </div>
     </div>
-    <button class="button step-back-button w-100" [routerLink]="['/cart']">
+    <button
+      type="button"
+      class="button step-back-button w-100"
+      [routerLink]="['/cart']"
+    >
       Go back
     </button>
     <button
+      type="submit"
       class="button checkout-button w-100"
       [disabled]="!shippingForm.valid"
       [class.disabled]="!shippingForm.valid"

@@ -5,7 +5,8 @@
   [class.choose-size]="!item.size"
 >
   <div class="modal-header">
-    <h4 class="modal-title">You added new product to cart</h4>
+    <h4 *ngIf="item.size" class="modal-title">You added new product to cart</h4>
+    <h4 *ngIf="!item.size" class="modal-title">Choose size</h4>
     <button type="button" class="close" aria-label="Close" (click)="close()">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -32,7 +33,6 @@
     </button>
   </div>
   <div class="modal-footer footer-sizes" *ngIf="!item.size">
-    <span>Choose size:</span>
     <div class="sizes-wrapper">
       <input
         [formControl]="productSize"

@@ -8,44 +8,56 @@ import { ShippingComponent } from "./shipping/shipping.component";
 import { PaymentComponent } from "./payment/payment.component";
 import { OrderComponent } from "./order/order.component";
 import { OrderCompleteComponent } from "./order-complete/order-complete.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 const routes: Routes = [
   {
     path: "",
-    component: HomepageComponent
+    component: HomepageComponent,
+    data: { animation: "HomePage" }
   },
   {
     path: "subcategory/:id",
-    component: SubcategoryComponent
+    component: SubcategoryComponent,
+    data: { animation: "Subcategory" }
   },
   {
     path: "cart",
-    component: CartComponent
+    component: CartComponent,
+    data: { animation: "Cart" }
   },
   {
     path: "product/:name/:sku",
-    component: ProductDetailsComponent
+    component: ProductDetailsComponent,
+    data: { animation: "Product" }
   },
   {
     path: "checkout/shipping",
-    component: ShippingComponent
+    component: ShippingComponent,
+    data: { animation: "Shipping" }
   },
   {
     path: "checkout/payment",
-    component: PaymentComponent
+    component: PaymentComponent,
+    data: { animation: "Payment" }
   },
   {
     path: "checkout/order",
-    component: OrderComponent
+    component: OrderComponent,
+    data: { animation: "Order" }
   },
   {
     path: "checkout/order-complete",
-    component: OrderCompleteComponent
+    component: OrderCompleteComponent,
+    data: { animation: "OrderComplete" }
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, { scrollPositionRestoration: "enabled" }),
+    BrowserAnimationsModule
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
