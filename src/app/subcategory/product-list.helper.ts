@@ -227,5 +227,68 @@ export const productList: IProduct[] = [
     price: 49.9,
     image_url: "GEO-U8224D050AUC0829a.jpg",
     category_id: 54
+  },
+  {
+    name: "akane",
+    sku: "DMH465-S49-065X",
+    price: 49.9,
+    image_url: "DMH465-S49-065X-9999-0a.jpg",
+    category_id: 23
+  },
+  {
+    name: "gela",
+    sku: "DMI269-P49-053",
+    price: 49.9,
+    image_url: "DMI269-P49-0537-2100-0a.jpg",
+    category_id: 23
+  },
+  {
+    name: "alba",
+    sku: "DMI345-S49-0299",
+    price: 49.9,
+    image_url: "DMI345-S49-0299-3100-0a.jpg",
+    category_id: 23
+  },
+  {
+    name: "iku",
+    sku: "DMI613-S48-07",
+    price: 49.9,
+    image_url: "DMI613-S48-0751-9999-0a.jpg",
+    category_id: 23
+  },
+  {
+    name: "iku",
+    sku: "DMI748-S48-070",
+    price: 49.9,
+    image_url: "DMI748-S48-0709-9900-0a.jpg",
+    category_id: 23
+  },
+  {
+    name: "azumi",
+    sku: "DWI265-Y76-0",
+    price: 49.9,
+    image_url: "DWI265-Y76-0299-1400-0a.jpg",
+    category_id: 23
+  },
+  {
+    name: "alba",
+    sku: "DWI265-Y76-02",
+    price: 49.9,
+    image_url: "DWI265-Y76-0299-1400-0a.jpg",
+    category_id: 23
+  },
+  {
+    name: "azumi",
+    sku: "DWI704-Z47-03",
+    price: 49.9,
+    image_url: "DWI704-Z47-0324-9900-0a.jpg",
+    category_id: 23
+  },
+  {
+    name: "geox",
+    sku: "GEO-U8224",
+    price: 49.9,
+    image_url: "GEO-U8224D050AUC0829a.jpg",
+    category_id: 54
   }
 ];
