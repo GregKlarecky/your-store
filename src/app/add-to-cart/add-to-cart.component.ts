@@ -1,7 +1,10 @@
-import { Component, OnInit, Input, HostBinding } from "@angular/core";
+import { Component, OnInit, Input, OnDestroy } from "@angular/core";
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { CustomModalService } from "../services/custom-modal.service";
 import { trigger, transition, style, animate } from "@angular/animations";
+import { Validators, FormControl } from "@angular/forms";
+import { BaseComponent } from "../shared/base/base.component";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
   selector: "app-add-to-cart",
@@ -19,16 +22,33 @@ import { trigger, transition, style, animate } from "@angular/animations";
     ])
   ]
 })
-export class AddToCartComponent implements OnInit {
-  @Input() item;
+export class AddToCartComponent extends BaseComponent
+  implements OnInit, OnDestroy {
+  public sizes: number[] = [42, 43, 44, 45, 46, 47];
   public show: boolean = true;
+  @Input() item;
+  public productSize = new FormControl("", [Validators.required]);
 
   constructor(
     public activeModal: NgbActiveModal,
     private customModalService: CustomModalService
-  ) {}
+  ) {
+    super();
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.productSize.valueChanges
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(value => {
+        if (value) {
+          const payload = { item: { ...this.item }, size: value, amount: 1 };
+          setTimeout(() => {
+            this.customModalService.sizeChosen.next(payload);
+          }, 350);
+          this.close();
+        }
+      });
+  }
 
   public close() {
     this.show = false;
@@ -36,5 +56,9 @@ export class AddToCartComponent implements OnInit {
     setTimeout(() => {
       this.activeModal.close("Close click");
     }, 350);
+  }
+
+  ngOnDestroy() {
+    super.ngOnDestroy();
   }
 }

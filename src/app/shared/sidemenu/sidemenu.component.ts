@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { MenuService } from "src/app/services/menu.service";
 
 import { categories, ICategory } from "./categories.helper";
@@ -13,7 +13,8 @@ import {
   animate,
   keyframes
 } from "@angular/animations";
-import { tap, delay } from "rxjs/operators";
+import { tap, delay, takeUntil } from "rxjs/operators";
+import { BaseComponent } from "../base/base.component";
 
 @Component({
   selector: "app-sidemenu",
@@ -62,7 +63,8 @@ import { tap, delay } from "rxjs/operators";
     ])
   ]
 })
-export class SidemenuComponent implements OnInit {
+export class SidemenuComponent extends BaseComponent
+  implements OnInit, OnDestroy {
   public categories: ICategory[] = categories;
   public rootCategory: ICategory;
   public newCategories: boolean = true;
@@ -73,12 +75,15 @@ export class SidemenuComponent implements OnInit {
     private menuService: MenuService,
     private categoriesService: CategoriesService,
     private router: Router
-  ) {}
+  ) {
+    super();
+  }
 
   ngOnInit() {
     this.rootCategory = this.getCategoryById(0);
     this.watchMenuState();
     this.categoriesService.categoriesToOpen
+      .pipe(takeUntil(this.unsubscribe$))
       .pipe(
         tap(() => {
           this.newCategories = false;
@@ -118,5 +123,9 @@ export class SidemenuComponent implements OnInit {
       this.menuService.toggleMenu.next(!this.isMenuToggled);
       this.router.navigate(["subcategory", id]);
     }
+  }
+
+  ngOnDestroy() {
+    super.ngOnDestroy();
   }
 }

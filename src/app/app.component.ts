@@ -1,7 +1,9 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { MenuService } from "./services/menu.service";
 import { CustomModalService } from "./services/custom-modal.service";
 import { trigger, transition, style, animate } from "@angular/animations";
+import { BaseComponent } from "./shared/base/base.component";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
   selector: "app-root",
@@ -17,14 +19,16 @@ import { trigger, transition, style, animate } from "@angular/animations";
     ])
   ]
 })
-export class AppComponent implements OnInit {
+export class AppComponent extends BaseComponent implements OnInit, OnDestroy {
   isMenuToggled: boolean;
   isBackdropToggled: boolean;
   disableScroll: boolean = false;
   constructor(
     private menuService: MenuService,
     private customModalService: CustomModalService
-  ) {}
+  ) {
+    super();
+  }
 
   ngOnInit() {
     this.watchMenuState();
@@ -32,15 +36,21 @@ export class AppComponent implements OnInit {
   }
 
   watchMenuState() {
-    this.menuService.toggleMenu.subscribe(isToggled => {
-      this.isMenuToggled = isToggled;
-      this.disableScroll = isToggled;
-    });
+    this.menuService.toggleMenu
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(isToggled => {
+        this.isMenuToggled = isToggled;
+        this.disableScroll = isToggled;
+      });
   }
 
   toggleBackdrop() {
     this.customModalService.backdropSubject.subscribe(toggle => {
       this.isBackdropToggled = toggle;
     });
+  }
+
+  ngOnDestroy() {
+    super.ngOnDestroy();
   }
 }

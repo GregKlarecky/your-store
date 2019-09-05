@@ -56,10 +56,6 @@ export class ProductDetailsComponent extends BaseComponent
     this.touched = true;
   }
 
-  public subtractFromCart() {
-    this.cartService.subtractFromCart(this.product, 1, this.productSize.value);
-  }
-
   ngOnDestroy() {
     super.ngOnDestroy();
   }

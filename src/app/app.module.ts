@@ -25,7 +25,7 @@ import { environment } from "../environments/environment";
 import { CounterComponent } from "./counter/counter.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AddToCartComponent } from "./add-to-cart/add-to-cart.component";
-import { CartItemComponent } from './cart-item/cart-item.component';
+import { CartItemComponent } from "./cart-item/cart-item.component";
 
 @NgModule({
   declarations: [

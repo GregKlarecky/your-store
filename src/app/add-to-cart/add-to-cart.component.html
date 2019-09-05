@@ -8,7 +8,7 @@
   <div class="modal-body">
     <app-cart-item [item]="item" [counter]="false"></app-cart-item>
   </div>
-  <div class="modal-footer">
+  <div class="modal-footer" *ngIf="item.size">
     <button
       type="button"
       class="btn btn-outline-dark"
@@ -25,5 +25,21 @@
     >
       Go to cart
     </button>
+  </div>
+  <div class="modal-footer sizes-wrapper" *ngIf="!item.size">
+    <input
+      [formControl]="productSize"
+      type="radio"
+      *ngFor="let size of sizes"
+      [value]="size"
+      name="shoeSize"
+      [id]="size"
+    />
+    <label
+      *ngFor="let size of sizes"
+      [for]="size"
+      [class.selected-size]="productSize.value === size"
+      >{{ size }}</label
+    >
   </div>
 </div>

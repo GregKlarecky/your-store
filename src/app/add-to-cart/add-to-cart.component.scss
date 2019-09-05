@@ -3,3 +3,29 @@
   border-radius: 0.3rem;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
+
+input[type="radio"] {
+  display: none;
+}
+
+.sizes-wrapper {
+  justify-content: space-around;
+  padding: 1rem 2rem;
+}
+
+label {
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  transition: 300ms;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 12px 16px;
+  margin: 0 !important;
+  border-radius: 4px;
+  &:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.selected-size {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
