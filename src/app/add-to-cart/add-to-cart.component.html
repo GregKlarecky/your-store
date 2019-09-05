@@ -1,4 +1,9 @@
-<div @slideDown *ngIf="show" class="modal-wrapper">
+<div
+  @slideDown
+  *ngIf="show"
+  class="modal-wrapper"
+  [class.choose-size]="!item.size"
+>
   <div class="modal-header">
     <h4 class="modal-title">You added new product to cart</h4>
     <button type="button" class="close" aria-label="Close" (click)="close()">
@@ -26,20 +31,23 @@
       Go to cart
     </button>
   </div>
-  <div class="modal-footer sizes-wrapper" *ngIf="!item.size">
-    <input
-      [formControl]="productSize"
-      type="radio"
-      *ngFor="let size of sizes"
-      [value]="size"
-      name="shoeSize"
-      [id]="size"
-    />
-    <label
-      *ngFor="let size of sizes"
-      [for]="size"
-      [class.selected-size]="productSize.value === size"
-      >{{ size }}</label
-    >
+  <div class="modal-footer footer-sizes" *ngIf="!item.size">
+    <span>Choose size:</span>
+    <div class="sizes-wrapper">
+      <input
+        [formControl]="productSize"
+        type="radio"
+        *ngFor="let size of sizes"
+        [value]="size"
+        name="shoeSize"
+        [id]="size"
+      />
+      <label
+        *ngFor="let size of sizes"
+        [for]="size"
+        [class.selected-size]="productSize.value === size"
+        >{{ size }}</label
+      >
+    </div>
   </div>
 </div>

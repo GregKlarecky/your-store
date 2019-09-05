@@ -9,8 +9,9 @@ input[type="radio"] {
 }
 
 .sizes-wrapper {
+  display: flex;
   justify-content: space-around;
-  padding: 1rem 2rem;
+  margin: 0;
 }
 
 label {
@@ -28,4 +29,13 @@ label {
 
 .selected-size {
   border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.footer-sizes {
+  display: block;
+  padding: 0;
+  padding: 0.5rem 1.7rem 1rem 1.7rem;
+  span {
+    font-size: 1.2rem;
+  }
 }
