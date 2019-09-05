@@ -224,7 +224,7 @@ export const productList: IProduct[] = [
   {
     name: "geox",
     sku: "GEO-U8224",
-    price: 49.9,
+    price: 69.9,
     image_url: "GEO-U8224D050AUC0829a.jpg",
     category_id: 54
   },
@@ -245,7 +245,7 @@ export const productList: IProduct[] = [
   {
     name: "alba",
     sku: "DMI345-S49-0299",
-    price: 49.9,
+    price: 39.9,
     image_url: "DMI345-S49-0299-3100-0a.jpg",
     category_id: 23
   },
@@ -259,7 +259,7 @@ export const productList: IProduct[] = [
   {
     name: "iku",
     sku: "DMI748-S48-070",
-    price: 49.9,
+    price: 69.9,
     image_url: "DMI748-S48-0709-9900-0a.jpg",
     category_id: 23
   },
@@ -273,7 +273,7 @@ export const productList: IProduct[] = [
   {
     name: "alba",
     sku: "DWI265-Y76-02",
-    price: 49.9,
+    price: 39.9,
     image_url: "DWI265-Y76-0299-1400-0a.jpg",
     category_id: 23
   },
@@ -294,7 +294,7 @@ export const productList: IProduct[] = [
   {
     name: "adora",
     sku: "DAI532-CZ7-10-0a",
-    price: 49.9,
+    price: 39.9,
     image_url: "DAI532-CZ7-1004-9900-0a.jpg",
     category_id: 24
   },
@@ -308,7 +308,7 @@ export const productList: IProduct[] = [
   {
     name: "marisa",
     sku: "DAI583-CL9--0a",
-    price: 49.9,
+    price: 69.9,
     image_url: "DAI583-CL9-4900-9900-0a.jpg",
     category_id: 24
   },
@@ -322,7 +322,7 @@ export const productList: IProduct[] = [
   {
     name: "lanza",
     sku: "DAI836-CS70-0a",
-    price: 49.9,
+    price: 39.9,
     image_url: "DAI836-CS7-0900-1700-0a.jpg",
     category_id: 24
   },
@@ -341,10 +341,66 @@ export const productList: IProduct[] = [
     category_id: 24
   },
   {
-    name: "lanza",
-    sku: "GEO-U8224",
+    name: "miya",
+    sku: "DKG759-S5800-0a",
+    price: 39.9,
+    image_url: "DKG759-S58-4900-9900-0a.jpg",
+    category_id: 22
+  },
+  {
+    name: "serea",
+    sku: "DKH138-X9900-Fa",
     price: 49.9,
-    image_url: "GEO-U8224D050AUC0829a.jpg",
+    image_url: "DKH138-XXX-4900-9900-Fa.jpg",
+    category_id: 22
+  },
+  {
+    name: "lilia",
+    sku: "DKI1694-9999-0a",
+    price: 69.9,
+    image_url: "DKI161-BL6-0394-9999-0a.jpg",
+    category_id: 22
+  },
+  {
+    name: "nevia",
+    sku: "DKI161-BL6-040a",
+    price: 49.9,
+    image_url: "DKI161-BL6-0479-3131-0a.jpg",
+    category_id: 22
+  },
+  {
+    name: "tesa",
+    sku: "DKI179-BL60-0a",
+    price: 39.9,
+    image_url: "DKI179-BL6-E1SS-9900-0a.jpg",
+    category_id: 22
+  },
+  {
+    name: "kaula",
+    sku: "DKI179-BL60-0a",
+    price: 49.9,
+    image_url: "DKI179-BL6-E1SS-9900-0a.jpg",
+    category_id: 22
+  },
+  {
+    name: "savona",
+    sku: "DKI552-9900-0a",
+    price: 69.9,
+    image_url: "DKI552-772-0900-9900-0a.jpg",
+    category_id: 22
+  },
+  {
+    name: "mizuki",
+    sku: "DKI500-9900-0a",
+    price: 49.9,
+    image_url: "DKI558-774-0900-9900-0a.jpg",
+    category_id: 22
+  },
+  {
+    name: "lanza",
+    sku: "GEO8224",
+    price: 49.9,
+    image_url: "GEO224D050AUC0829a.jpg",
     category_id: 54
   }
 ];
