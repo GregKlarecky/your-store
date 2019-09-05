@@ -285,7 +285,63 @@ export const productList: IProduct[] = [
     category_id: 23
   },
   {
-    name: "geox",
+    name: "marisa",
+    sku: "DAI529-C-9900-0a",
+    price: 49.9,
+    image_url: "DAI529-CZ8-4900-9900-0a.jpg",
+    category_id: 24
+  },
+  {
+    name: "adora",
+    sku: "DAI532-CZ7-10-0a",
+    price: 49.9,
+    image_url: "DAI532-CZ7-1004-9900-0a.jpg",
+    category_id: 24
+  },
+  {
+    name: "akane",
+    sku: "DAI583-CL00-0a",
+    price: 49.9,
+    image_url: "DAI583-CL9-0760-4300-0a.jpg",
+    category_id: 24
+  },
+  {
+    name: "marisa",
+    sku: "DAI583-CL9--0a",
+    price: 49.9,
+    image_url: "DAI583-CL9-4900-9900-0a.jpg",
+    category_id: 24
+  },
+  {
+    name: "rosa",
+    sku: "DAI638-CN1-00a",
+    price: 49.9,
+    image_url: "DAI638-CN1-0760-7700-0a.jpg",
+    category_id: 24
+  },
+  {
+    name: "lanza",
+    sku: "DAI836-CS70-0a",
+    price: 49.9,
+    image_url: "DAI836-CS7-0900-1700-0a.jpg",
+    category_id: 24
+  },
+  {
+    name: "adora",
+    sku: "DAI638-CN10-0a",
+    price: 49.9,
+    image_url: "DAI638-CN1-4900-9900-0a.jpg",
+    category_id: 24
+  },
+  {
+    name: "lanza",
+    sku: "DAI836-CS6--0a",
+    price: 49.9,
+    image_url: "DAI836-CS6-1004-9900-0a.jpg",
+    category_id: 24
+  },
+  {
+    name: "lanza",
     sku: "GEO-U8224",
     price: 49.9,
     image_url: "GEO-U8224D050AUC0829a.jpg",
