@@ -509,6 +509,34 @@ export const productList: IProduct[] = [
     category_id: 28
   },
   {
+    name: "wallet",
+    sku: "AFG00-9900-Xa",
+    price: 19.9,
+    image_url: "AFV198-000-BG00-9900-Xa.jpg",
+    category_id: 29
+  },
+  {
+    name: "wallet",
+    sku: "AFV51-4300-Xa",
+    price: 29.9,
+    image_url: "AFV517-000-BG00-4300-Xa.jpg",
+    category_id: 29
+  },
+  {
+    name: "wallet",
+    sku: "AFV51-9900-Xa",
+    price: 19.9,
+    image_url: "AFV517-000-BG00-9900-Xa.jpg",
+    category_id: 29
+  },
+  {
+    name: "wallet",
+    sku: "AFV518-009900",
+    price: 29.9,
+    image_url: "AFV518-000-BG00-9900-Xa.jpg",
+    category_id: 29
+  },
+  {
     name: "rumi",
     sku: "GEO8224",
     price: 49.9,
