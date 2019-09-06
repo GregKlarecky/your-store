@@ -686,14 +686,14 @@ export const productList: IProduct[] = [
   {
     name: "necklace",
     sku: "BN0043-07-Xa",
-    price: 44.9,
+    price: 39.9,
     image_url: "BN0043-000-MSZ0-1007-Xa.jpg",
     category_id: 13
   },
   {
     name: "necklace",
     sku: "BP00-9B00-Xa",
-    price: 49.9,
+    price: 55.9,
     image_url: "BN0037-000-S000-2300-Xa.jpg",
     category_id: 13
   },
@@ -702,6 +702,41 @@ export const productList: IProduct[] = [
     sku: "BP0012-07-Xa",
     price: 44.9,
     image_url: "BN0037-000-S000-1007-Xa.jpg",
+    category_id: 13
+  },
+  {
+    name: "earrings",
+    sku: "BK0-1048-Xa",
+    price: 59.9,
+    image_url: "BK0025-000-M000-1048-Xa.jpg",
+    category_id: 12
+  },
+  {
+    name: "earrings",
+    sku: "BK0026-0-Xa",
+    price: 67.9,
+    image_url: "BK0026-000-MOKA-8500-Xa.jpg",
+    category_id: 12
+  },
+  {
+    name: "earrings",
+    sku: "BK0045-7-Xa",
+    price: 79.9,
+    image_url: "BK0045-000-MEZY-1007-Xa.jpg",
+    category_id: 12
+  },
+  {
+    name: "earrings",
+    sku: "BK0-2300-Xa",
+    price: 68.9,
+    image_url: "BK0049-000-S000-2300-Xa.jpg",
+    category_id: 12
+  },
+  {
+    name: "necklace",
+    sku: "BP001Xa",
+    price: 44.9,
+    image_url: "BN0037Xa.jpg",
     category_id: 13
   }
 ];

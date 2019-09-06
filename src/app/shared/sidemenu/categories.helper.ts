@@ -41,6 +41,6 @@ export const categories: ICategory[] = [
   { name: "clarks", id: 32, parent: 9 },
   { name: "gino rossi", id: 33, parent: 9 },
   { name: "wojas", id: 34, parent: 9 },
-  { name: "men", id: 12, parent: 16 },
-  { name: "women", id: 13, parent: 16 }
+  { name: "earrings", id: 12, parent: 16 },
+  { name: "necklace", id: 13, parent: 16 }
 ];
