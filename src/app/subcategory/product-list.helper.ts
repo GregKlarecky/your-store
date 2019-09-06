@@ -622,37 +622,86 @@ export const productList: IProduct[] = [
   },
   {
     name: "suitcase",
-    sku: "ABW002-000-BGTS-5700-Xla",
+    sku: "ABW00200-Xla",
     price: 44.9,
     image_url: "ABW002-000-BGTS-5700-Xla.jpg",
     category_id: 63
   },
   {
     name: "suitcase",
-    sku: "ABW002-000-BGTS-5700-Xma",
+    sku: "ABW-5700-Xma",
     price: 59.9,
     image_url: "ABW002-000-BGTS-5700-Xma.jpg",
     category_id: 63
   },
   {
     name: "suitcase",
-    sku: "ABW002-000-BGTS-8100-Xla",
+    sku: "ABW002-000-a",
     price: 59.9,
     image_url: "ABW002-000-BGTS-8100-Xla.jpg",
     category_id: 63
   },
   {
     name: "suitcase",
-    sku: "ABW002-000-BGTS-8100-Xma",
+    sku: "ABW-8100-Xma",
     price: 64.9,
     image_url: "ABW002-000-BGTS-8100-Xma.jpg",
     category_id: 63
   },
   {
-    name: "rumi",
-    sku: "GEO8224",
+    name: "belt",
+    sku: "AM0489-0-Xa",
+    price: 29.9,
+    image_url: "AM0489-000-BG00-9900-Xa.jpg",
+    category_id: 64
+  },
+  {
+    name: "belt",
+    sku: "AM052500-Xa",
+    price: 25.9,
+    image_url: "AM0510-000-BT00-2500-Xa.jpg",
+    category_id: 64
+  },
+  {
+    name: "belt",
+    sku: "AM0510-0-Xa",
+    price: 24.9,
+    image_url: "AM0510-000-BT00-5700-Xa.jpg",
+    category_id: 64
+  },
+  {
+    name: "belt",
+    sku: "AM0-9900-Xa",
+    price: 19.9,
+    image_url: "AM0510-000-BT00-9900-Xa.jpg",
+    category_id: 64
+  },
+  {
+    name: "necklace",
+    sku: "BN00-2300-Xa",
     price: 34.9,
-    image_url: "GEO224D050AUC0829a.jpg",
-    category_id: 25
+    image_url: "BN0043-000-M050-2300-Xa.jpg",
+    category_id: 13
+  },
+  {
+    name: "necklace",
+    sku: "BN0043-07-Xa",
+    price: 44.9,
+    image_url: "BN0043-000-MSZ0-1007-Xa.jpg",
+    category_id: 13
+  },
+  {
+    name: "necklace",
+    sku: "BP00-9B00-Xa",
+    price: 49.9,
+    image_url: "BN0037-000-S000-2300-Xa.jpg",
+    category_id: 13
+  },
+  {
+    name: "necklace",
+    sku: "BP0012-07-Xa",
+    price: 44.9,
+    image_url: "BN0037-000-S000-1007-Xa.jpg",
+    category_id: 13
   }
 ];
