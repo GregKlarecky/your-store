@@ -30,6 +30,8 @@
     <button
       class="button checkout-button"
       [routerLink]="['/checkout', 'shipping']"
+      [disabled]="!cartItems.length"
+      [class.disabled]="!cartItems.length"
     >
       To checkout
     </button>
