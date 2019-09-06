@@ -6,6 +6,7 @@ import { FormControl, Validators } from "@angular/forms";
 import { BaseComponent } from "../shared/base/base.component";
 import { CartService } from "../services/cart.service";
 import { stringValidator } from "./size.validator";
+import { CategoriesService } from "../services/categories.service";
 
 @Component({
   selector: "app-product-details",
@@ -17,6 +18,7 @@ export class ProductDetailsComponent extends BaseComponent
   public sizes: number[] = [42, 43, 44, 45, 46, 47];
   public productList: IProduct[] = productList;
   public product: IProduct;
+  public ifShoe: boolean;
   public sizesClicked: boolean = false;
   public sizesOpened: boolean = false;
   public productSize = new FormControl("Wybierz", [
@@ -26,7 +28,11 @@ export class ProductDetailsComponent extends BaseComponent
   public cart: IProduct[];
   public touched: boolean = false;
 
-  constructor(private route: ActivatedRoute, private cartService: CartService) {
+  constructor(
+    private route: ActivatedRoute,
+    private cartService: CartService,
+    private categoriesService: CategoriesService
+  ) {
     super();
   }
 
@@ -40,6 +46,9 @@ export class ProductDetailsComponent extends BaseComponent
       this.product = this.productList.find(product => {
         return product.sku === sku;
       });
+      this.ifShoe = this.categoriesService.ifParentCategoryisShoes(
+        this.product.category_id
+      );
     });
   }
 
@@ -49,8 +58,9 @@ export class ProductDetailsComponent extends BaseComponent
   }
 
   public addToCart() {
-    if (typeof this.productSize.value === "number") {
-      this.cartService.addToCart(this.product, 1, this.productSize.value);
+    if (!this.ifShoe || this.productSize.value !== "Wybierz") {
+      const size = this.ifShoe ? this.productSize.value : "no-size";
+      this.cartService.addToCart(this.product, 1, size);
       return;
     }
     this.touched = true;

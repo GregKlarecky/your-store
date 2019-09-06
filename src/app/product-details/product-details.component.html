@@ -14,7 +14,7 @@
     <button class="button description">
       <i class="fas fa-list"></i><span> Description</span>
     </button>
-    <div class="size-wrapper">
+    <div class="size-wrapper" *ngIf="ifShoe">
       <span
         class="size-select-label"
         [class.red-text]="!productSize.valid && touched"

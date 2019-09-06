@@ -40,4 +40,9 @@ export class CategoriesService {
     });
     return parent;
   }
+
+  ifParentCategoryisShoes(childId: number) {
+    const parent = this.getCategoryParentByChildId(childId);
+    return parent.name === "shoes";
+  }
 }
