@@ -621,6 +621,34 @@ export const productList: IProduct[] = [
     category_id: 62
   },
   {
+    name: "suitcase",
+    sku: "ABW002-000-BGTS-5700-Xla",
+    price: 44.9,
+    image_url: "ABW002-000-BGTS-5700-Xla.jpg",
+    category_id: 63
+  },
+  {
+    name: "suitcase",
+    sku: "ABW002-000-BGTS-5700-Xma",
+    price: 59.9,
+    image_url: "ABW002-000-BGTS-5700-Xma.jpg",
+    category_id: 63
+  },
+  {
+    name: "suitcase",
+    sku: "ABW002-000-BGTS-8100-Xla",
+    price: 59.9,
+    image_url: "ABW002-000-BGTS-8100-Xla.jpg",
+    category_id: 63
+  },
+  {
+    name: "suitcase",
+    sku: "ABW002-000-BGTS-8100-Xma",
+    price: 64.9,
+    image_url: "ABW002-000-BGTS-8100-Xma.jpg",
+    category_id: 63
+  },
+  {
     name: "rumi",
     sku: "GEO8224",
     price: 34.9,
