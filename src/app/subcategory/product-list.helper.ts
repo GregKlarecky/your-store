@@ -733,6 +733,34 @@ export const productList: IProduct[] = [
     category_id: 12
   },
   {
+    name: "aurora",
+    sku: "DNI3400-0a",
+    price: 24.9,
+    image_url: "DNI346-Q82-0632-7100-0a.jpg",
+    category_id: 21
+  },
+  {
+    name: "minako",
+    sku: "DNI346-Q0a",
+    price: 34.9,
+    image_url: "DNI346-Q82-0632-7100-0a.jpg",
+    category_id: 21
+  },
+  {
+    name: "aurora",
+    sku: "DNI3931-0a",
+    price: 24.9,
+    image_url: "DNI363-CH8-0587-9931-0a.jpg",
+    category_id: 21
+  },
+  {
+    name: "minako",
+    sku: "DNI395--0a",
+    price: 34.9,
+    image_url: "DNI395-Q82-0299-3100-0a.jpg",
+    category_id: 21
+  },
+  {
     name: "necklace",
     sku: "BP001Xa",
     price: 44.9,

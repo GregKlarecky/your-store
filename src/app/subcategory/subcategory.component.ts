@@ -11,24 +11,34 @@ import { ActivatedRoute } from "@angular/router";
 export class SubcategoryComponent implements OnInit {
   productList: IProduct[] = productList;
   productListByCategory: IProduct[];
-  public categoryId: string;
+  public categoryId: number;
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     window.scrollTo(0, 0);
-    this.getCategoryId();
+    this.getCategoryIdAndProductList();
   }
 
-  getProductListByCategory() {
+  getProductListByCategoryId() {
     this.productListByCategory = this.productList.filter(product => {
-      return product.category_id === parseInt(this.categoryId, 10);
+      return product.category_id === this.categoryId;
     });
   }
 
-  getCategoryId() {
+  getCategoryIdAndProductList() {
     this.route.paramMap.subscribe(paramMap => {
-      this.categoryId = paramMap.get("id");
-      this.getProductListByCategory();
+      this.categoryId = parseInt(paramMap.get("id"), 10);
+      if (this.categoryId === 11) {
+        this.getProductsByName("bag");
+      } else {
+        this.getProductListByCategoryId();
+      }
+    });
+  }
+
+  getProductsByName(name: string) {
+    this.productListByCategory = this.productList.filter(product => {
+      return product.name === name;
     });
   }
 }
