@@ -565,9 +565,65 @@ export const productList: IProduct[] = [
     category_id: 30
   },
   {
+    name: "bag",
+    sku: "YTG00-9900-Xa",
+    price: 19.9,
+    image_url: "YT365A-000-BG00-9900-Xa.jpg",
+    category_id: 61
+  },
+  {
+    name: "bag",
+    sku: "YT410A-500-Xa",
+    price: 29.9,
+    image_url: "YT410A-000-BG00-2500-Xa.jpg",
+    category_id: 61
+  },
+  {
+    name: "bag",
+    sku: "YT410A-000-Xa",
+    price: 24.9,
+    image_url: "YT410A-000-BG00-9900-Xa.jpg",
+    category_id: 61
+  },
+  {
+    name: "bag",
+    sku: "YT430A-000-Ba",
+    price: 24.9,
+    image_url: "YT430A-000-BG00-9900-Xa.jpg",
+    category_id: 61
+  },
+  {
+    name: "wallet",
+    sku: "AFVG00-3300-Xa",
+    price: 34.9,
+    image_url: "AFV252-000-BG00-3300-Xa.jpg",
+    category_id: 62
+  },
+  {
+    name: "wallet",
+    sku: "AFV252-0000-Xa",
+    price: 29.9,
+    image_url: "AFV252-000-BG00-9900-Xa.jpg",
+    category_id: 62
+  },
+  {
+    name: "wallet",
+    sku: "AFV250-3300-Xa",
+    price: 19.9,
+    image_url: "AFV254-000-BG00-3300-Xa.jpg",
+    category_id: 62
+  },
+  {
+    name: "wallet",
+    sku: "AFV258-0900-Xa",
+    price: 24.9,
+    image_url: "AFV258-000-BG00-9900-Xa.jpg",
+    category_id: 62
+  },
+  {
     name: "rumi",
     sku: "GEO8224",
-    price: 49.9,
+    price: 34.9,
     image_url: "GEO224D050AUC0829a.jpg",
     category_id: 25
   }
