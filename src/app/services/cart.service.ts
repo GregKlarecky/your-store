@@ -6,6 +6,7 @@ import { AddToCartComponent } from "../add-to-cart/add-to-cart.component";
 import { CustomModalService } from "./custom-modal.service";
 import { IAddress } from "src/interfaces/address.interface";
 import { IDeliveryAndPayment } from "src/interfaces/delivery-payment.interface";
+import { Subject, BehaviorSubject } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -15,12 +16,14 @@ export class CartService {
   public orderline: number;
   public address: IAddress;
   public deliveryAndPayment: IDeliveryAndPayment;
+  public newCart: BehaviorSubject<ICartItem[]>;
 
   constructor(
     private modalService: NgbModal,
     private customModalService: CustomModalService
   ) {
     this.getCartStateFromLocalStorage();
+    this.newCart = new BehaviorSubject(this.items);
   }
 
   public addToCart(
@@ -42,6 +45,7 @@ export class CartService {
       this.openModal(product);
     }
     this.sortItems();
+    this.newCart.next(this.items);
     this.saveCartInLocalStorage();
   }
 
@@ -53,6 +57,8 @@ export class CartService {
     this.items = this.items.filter(product => {
       return product.cartId !== cartId;
     });
+    this.sortItems();
+    this.newCart.next(this.items);
     this.saveCartInLocalStorage();
   }
 
@@ -104,11 +110,12 @@ export class CartService {
         product.amount = product.amount - amount;
         this.items.splice(index, 1, product);
         this.sortItems();
+        this.newCart.next(this.items);
         this.saveCartInLocalStorage();
         return;
       }
       this.deleteProduct(product.cartId);
-      this.sortItems();
+
       this.saveCartInLocalStorage();
     }
   }

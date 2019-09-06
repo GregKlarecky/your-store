@@ -4,6 +4,7 @@
     <div class="nav-item search"><i class="fas fa-search"></i></div>
     <div class="nav-item cart" [routerLink]="['/cart']">
       <i class="fas fa-shopping-cart"></i>
+      <div class="badge">{{ itemsCount }}</div>
     </div>
     <div class="nav-item menu" (click)="toggleMenu()">
       <i class="fas fa-bars"></i>

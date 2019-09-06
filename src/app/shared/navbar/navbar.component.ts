@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { MenuService } from "src/app/services/menu.service";
 import { takeUntil } from "rxjs/operators";
 import { BaseComponent } from "../base/base.component";
+import { CartService } from "src/app/services/cart.service";
 
 @Component({
   selector: "app-navbar",
@@ -11,12 +12,19 @@ import { BaseComponent } from "../base/base.component";
 export class NavbarComponent extends BaseComponent
   implements OnInit, OnDestroy {
   isMenuToggled: boolean;
-  constructor(private menuService: MenuService) {
+  itemsCount: number;
+  constructor(
+    private menuService: MenuService,
+    private cartService: CartService
+  ) {
     super();
   }
 
   ngOnInit() {
     this.watchMenuState();
+    this.cartService.newCart.subscribe(items => {
+      this.itemsCount = items.length;
+    });
   }
 
   watchMenuState() {

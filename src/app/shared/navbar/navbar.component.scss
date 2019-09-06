@@ -34,3 +34,21 @@
     outline: none;
   }
 }
+
+.cart {
+  position: relative;
+}
+
+.badge {
+  height: 17px;
+  width: 17px;
+  border-radius: 50px;
+  background-color: $store-red;
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 30%;
+  right: 10%;
+}
