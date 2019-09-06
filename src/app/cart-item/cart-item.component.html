@@ -10,7 +10,9 @@
     <span class="cart-item-price">{{
       item?.price | currency: "EUR":"symbol"
     }}</span>
-    <span class="cart-item-size" *ngIf="item.size">SIZE: {{ item?.size }}</span>
+    <span class="cart-item-size" *ngIf="item.size && item.size !== 'no-size'"
+      >SIZE: {{ item?.size }}</span
+    >
     <div class="counter" *ngIf="item.amount">
       <span class="cart-item-amount">AMOUNT:</span>
       <app-counter

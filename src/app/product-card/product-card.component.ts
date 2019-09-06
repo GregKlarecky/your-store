@@ -15,6 +15,7 @@ import { BaseComponent } from "../shared/base/base.component";
 export class ProductCardComponent extends BaseComponent
   implements OnInit, OnDestroy {
   @Input() product: IProduct;
+  @Input() productSizeNeeded: boolean;
   modalRef;
   constructor(
     private modalService: NgbModal,
@@ -45,6 +46,14 @@ export class ProductCardComponent extends BaseComponent
       backdrop: false
     });
     modalRef.componentInstance.item = this.product;
+  }
+
+  public addToCart() {
+    if (this.productSizeNeeded) {
+      this.chooseSize();
+    } else {
+      this.cartService.addToCart(this.product, 1, "no-size");
+    }
   }
 
   ngOnDestroy() {

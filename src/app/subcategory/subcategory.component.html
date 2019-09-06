@@ -1,7 +1,10 @@
 <div class="container">
   <ul class="list product-list">
-    <li class="list-item shadow" *ngFor="let product of productListByCategory">
-      <app-product-card [product]="product"></app-product-card>
+    <li class="list-item shadow" *ngFor="let product of productList">
+      <app-product-card
+        [product]="product"
+        [productSizeNeeded]="ifShoeCategory"
+      ></app-product-card>
     </li>
   </ul>
 </div>
