@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url("https://fonts.googleapis.com/css?family=Questrial|Anton&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Questrial|Anton|Playfair+Display:400,700|Open+Sans+Condensed:300,700|Nanum+Myeongjo:400,800&display=swap");
 @import "assets/styles/variables";
 
 * {
@@ -20,6 +20,13 @@ body {
   top: 0;
   z-index: $backdrop-z;
   animation: fade-in 500ms ease-in forwards;
+}
+
+.banners-text {
+  b {
+    font-weight: 900 !important;
+    color: rgba(255, 255, 255, 1);
+  }
 }
 
 @keyframes fade-in {
@@ -128,4 +135,18 @@ body {
   top: 0;
   z-index: 1000;
   opacity: 0.5;
+}
+
+.show-on-mobile {
+  display: block;
+}
+
+.black {
+  color: black !important;
+}
+
+@media screen and (min-width: 992px) {
+  .show-on-mobile {
+    display: none;
+  }
 }

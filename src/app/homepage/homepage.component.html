@@ -2,6 +2,10 @@
   <div class="banners">
     <div class="banners-item" *ngFor="let banner of banners">
       <img [src]="banner?.src" [alt]="banner?.name" class="banners-img" />
+      <p
+        [ngClass]="['banners-text', banner.textClass]"
+        [innerHTML]="banner.text | safeHTML"
+      ></p>
     </div>
   </div>
 </div>

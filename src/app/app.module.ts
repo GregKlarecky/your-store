@@ -26,6 +26,7 @@ import { CounterComponent } from "./counter/counter.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AddToCartComponent } from "./add-to-cart/add-to-cart.component";
 import { CartItemComponent } from "./cart-item/cart-item.component";
+import { SafeHTMLPipe } from './pipes/safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { CartItemComponent } from "./cart-item/cart-item.component";
     ProductCardComponent,
     CounterComponent,
     AddToCartComponent,
-    CartItemComponent
+    CartItemComponent,
+    SafeHTMLPipe
   ],
   imports: [
     BrowserModule,
