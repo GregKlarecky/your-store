@@ -30,6 +30,11 @@ export class CategoriesService {
       return category.id === id;
     });
   }
+  getCategoriesByParentId(id: number) {
+    return this.categoriesList.filter(category => {
+      return category.parent === id;
+    });
+  }
 
   getCategoryParentByChildId(id: number) {
     const child = this.categoriesList.find(category => {

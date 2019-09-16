@@ -142,12 +142,28 @@ body {
   display: block;
 }
 
+.show-on-mobile-flex {
+  display: flex;
+}
+
+.show-on-desktop,
+.show-on-desktop-flex {
+  display: none;
+}
+
 .black {
   color: black !important;
 }
 
 @media screen and (min-width: 992px) {
-  .show-on-mobile {
+  .show-on-mobile,
+  .show-on-mobile-flex {
     display: none;
+  }
+  .show-on-desktop {
+    display: block;
+  }
+  .show-on-desktop-flex {
+    display: flex;
   }
 }

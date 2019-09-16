@@ -1,15 +1,49 @@
 <nav class="container-navbar">
-  <div class="nav-item logo" routerLink="/">YourStore.com</div>
+  <div class="categories">
+    <div class="nav-item logo" routerLink="/">YourStore.com</div>
+    <div
+      class="nav-item show-on-desktop-flex"
+      *ngFor="let category of rootCategories"
+      (click)="selectSubcategory(category.id)"
+    >
+      {{ category.name }}
+    </div>
+  </div>
   <div class="tools">
     <div class="nav-item search"><i class="fas fa-search"></i></div>
     <div class="nav-item cart" [routerLink]="['/cart']">
       <i class="fas fa-shopping-cart"></i>
       <div class="badge">{{ itemsCount }}</div>
     </div>
-    <div class="nav-item menu" (click)="toggleMenu()">
+    <div class="nav-item menu show-on-mobile" (click)="toggleMenu()">
       <i class="fas fa-bars"></i>
     </div>
   </div>
 </nav>
 <div class="padding"></div>
+<div class="subcategories-container" *ngIf="subcategories.length">
+  <ul class="list subcategories-list">
+    <li *ngFor="let subcategory of subcategories" class="subcategory-block">
+      <span class="subcategory-label">
+        {{ subcategory.name }}
+      </span>
+      <ul class="list">
+        <li
+          *ngFor="let grandSubcategoryId of subcategory.children"
+          class="grand-subcategory"
+        >
+          {{ getGrandSubcategory(grandSubcategoryId)?.name }}
+        </li>
+      </ul>
+    </li>
+    <li>
+      <span class="subcategory-label">Recommendations</span>
+      <ul class="list recommendations">
+        <li *ngFor="let recommend of recommendations">
+          <img [src]="'assets/banners/' + recommend" alt="" />
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
 <app-sidemenu class="show-on-mobile"></app-sidemenu>
