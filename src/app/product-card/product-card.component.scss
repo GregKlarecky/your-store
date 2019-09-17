@@ -1,16 +1,23 @@
 @import "~src/assets/styles/variables";
 
 .product {
+  overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
+  cursor: pointer;
   img {
     width: 100%;
     min-height: 205px;
   }
   &-price {
     font-size: 1.7rem;
+  }
+  &:hover {
+    .product-details {
+      transform: scale(1.2);
+    }
   }
 }
 
@@ -24,6 +31,7 @@
   align-items: center;
   font-size: 0.9rem;
   background: rgba(255, 255, 255, 0.7);
+  transition: 300ms;
   span {
     padding: 0.2rem;
   }

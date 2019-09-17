@@ -16,3 +16,15 @@
 .list-item {
   min-height: 270px;
 }
+
+@media screen and (min-width: $md-screen) {
+  .product-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: $xl-screen) {
+  .product-list {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
