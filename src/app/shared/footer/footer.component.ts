@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { FooterService } from "src/app/services/footer.service";
-import { takeUntil } from "rxjs/operators";
+import { takeUntil, mergeMap, map } from "rxjs/operators";
 import { BaseComponent } from "../base/base.component";
 
 @Component({
@@ -17,7 +17,14 @@ export class FooterComponent extends BaseComponent
 
   ngOnInit() {
     this.footerService.showFooter
-      .pipe(takeUntil(this.unsubscribe$))
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        mergeMap(ifShow =>
+          this.footerService.screenWidth.pipe(
+            map(isDesktopWidth => isDesktopWidth || ifShow)
+          )
+        )
+      )
       .subscribe(ifShow => {
         this.show = ifShow;
       });

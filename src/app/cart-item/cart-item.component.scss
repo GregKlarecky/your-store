@@ -1,8 +1,11 @@
+@import "~src/assets/styles/variables";
+
 .cart-item {
   overflow: hidden;
   display: flex;
   background: #fff;
   padding: 15px 0;
+  justify-content: space-around;
   .cart-item-image {
     height: 200px;
     padding: 0 1rem;
@@ -18,8 +21,9 @@
     }
   }
 
-  .cart-item-details {
+  &-details {
     display: flex;
+    padding-right: 1rem;
     flex-direction: column;
     span {
       color: rgba(0, 0, 0, 0.4);
@@ -63,6 +67,25 @@
     }
     .cart-item-price {
       font-size: 1.8rem;
+    }
+  }
+}
+
+@media screen and (min-width: $xl-screen) {
+  .cart-item {
+    justify-content: space-between;
+    &-details {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      flex: 1;
+
+      .cart-item-price {
+        margin: 0;
+      }
+      .cart-item-sku {
+        margin: 0;
+      }
     }
   }
 }

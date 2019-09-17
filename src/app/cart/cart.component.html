@@ -1,39 +1,40 @@
-<div class="container">
-  <ng-template #empty>
-    <div class="empty">
-      <i class="far fa-meh-rolling-eyes"></i>
-      <span> Your cart is empty</span>
-    </div>
-  </ng-template>
-
-  <ul
-    class="list cart-list"
-    *ngIf="cartItems.length; else empty"
-    [@removeItem]="'true'"
-  >
-    <li
-      *ngFor="let item of cartItems; let last = last; trackBy: trackByFn"
+<div class="cart-container container">
+  <div class="cart-wrapper">
+    <ng-template #empty>
+      <div class="empty">
+        <i class="far fa-meh-rolling-eyes"></i>
+        <span> Your cart is empty</span>
+      </div>
+    </ng-template>
+    <ul
+      class="list cart-list"
+      *ngIf="cartItems.length; else empty"
       [@removeItem]="'true'"
     >
-      <app-cart-item
-        [item]="item"
-        (itemsChange)="onItemsChange($event)"
-      ></app-cart-item>
-      <hr *ngIf="!last" />
-    </li>
-  </ul>
-  <div class="cart-summary">
-    <div class="quote">
-      <span>Total amount: </span
-      ><b>{{ totalCost | currency: "EUR":"symbol" }}</b>
+      <li
+        *ngFor="let item of cartItems; let last = last; trackBy: trackByFn"
+        [@removeItem]="'true'"
+      >
+        <app-cart-item
+          [item]="item"
+          (itemsChange)="onItemsChange($event)"
+        ></app-cart-item>
+        <hr *ngIf="!last" />
+      </li>
+    </ul>
+    <div class="cart-summary">
+      <div class="quote">
+        <span>Total amount: </span
+        ><b>{{ totalCost | currency: "EUR":"symbol" }}</b>
+      </div>
+      <button
+        class="button checkout-button"
+        [routerLink]="['/checkout', 'shipping']"
+        [disabled]="!cartItems.length"
+        [class.disabled]="!cartItems.length"
+      >
+        To checkout
+      </button>
     </div>
-    <button
-      class="button checkout-button"
-      [routerLink]="['/checkout', 'shipping']"
-      [disabled]="!cartItems.length"
-      [class.disabled]="!cartItems.length"
-    >
-      To checkout
-    </button>
   </div>
 </div>
