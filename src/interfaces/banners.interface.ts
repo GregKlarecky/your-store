@@ -3,4 +3,5 @@ export interface IBanner {
   name: string;
   text: string;
   textClass?: string;
+  imgClass?: string;
 }

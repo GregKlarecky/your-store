@@ -1,5 +1,16 @@
+@import "~src/assets/styles/variables";
+
+.homepage-container {
+}
+
 .banners {
   width: 100%;
+  display: grid;
+  grid-template-areas:
+    "first"
+    "second"
+    "third"
+    "fourth";
   &-item {
     width: 100%;
     display: flex;
@@ -44,5 +55,30 @@
   }
   .bigger-font {
     font-size: 1.5rem;
+  }
+}
+
+.first {
+  grid-area: first;
+}
+.second {
+  grid-area: second;
+}
+.third {
+  grid-area: third;
+}
+.fourth {
+  grid-area: fourth;
+}
+
+@media screen and (min-width: $xl-screen) {
+  .banners {
+    margin: 10px 0;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    grid-template-areas:
+      "third first"
+      "third second"
+      "third fourth";
   }
 }
