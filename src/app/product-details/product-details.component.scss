@@ -1,6 +1,6 @@
 @import "~src/assets/styles/variables";
 
-.container {
+.product-container {
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -40,8 +40,12 @@
     font-weight: bold;
   }
   &-image {
-    margin-top: -160px;
     min-height: 573px;
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
   .size-wrapper {
     display: flex;
@@ -237,5 +241,21 @@
     transform: perspective(400px) rotateX(0deg);
     -webkit-transform-origin: top;
     transform-origin: top;
+  }
+}
+
+@media screen and (min-width: $xl-screen) {
+  .product {
+    &-container {
+      flex-direction: row;
+    }
+    &-image {
+      &-wrapper {
+        flex: 1;
+      }
+    }
+    &-details {
+      width: 400px;
+    }
   }
 }
