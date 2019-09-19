@@ -14,7 +14,7 @@
       >SIZE: {{ item?.size }}</span
     >
     <div class="counter" *ngIf="item.amount">
-      <span class="cart-item-amount">AMOUNT:</span>
+      <span class="cart-item-amount">AMOUNT:&nbsp;</span>
       <app-counter
         *ngIf="counter"
         [amount]="item.amount"

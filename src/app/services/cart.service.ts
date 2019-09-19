@@ -91,6 +91,7 @@ export class CartService {
 
   public emptyCart() {
     this.items = [];
+    this.newCart.next(this.items);
   }
 
   public sortItems() {

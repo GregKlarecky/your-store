@@ -72,7 +72,7 @@
 }
 
 @media screen and (min-width: $xl-screen) {
-  .cart-item {
+  :host-context(.cart-list) .cart-item {
     justify-content: space-between;
     &-details {
       flex-direction: row;
@@ -85,6 +85,17 @@
       }
       .cart-item-sku {
         margin: 0;
+      }
+      .counter {
+        flex-direction: row;
+      }
+    }
+  }
+
+  :host-context(.first-step) .cart-item {
+    &-details {
+      .cart-item-amount {
+        display: none;
       }
     }
   }
