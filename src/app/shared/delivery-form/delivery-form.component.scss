@@ -1,0 +1,36 @@
+input[type="radio"] {
+  display: none;
+}
+
+.header {
+  margin-bottom: 3rem;
+  &-option {
+    margin-bottom: 1rem;
+    &:last-of-type {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+label {
+  cursor: pointer;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 30px;
+  align-items: center;
+  height: 40px;
+  background: #fff;
+  border-radius: 4px;
+  img {
+    height: 40px;
+  }
+  .payU {
+    height: 25px;
+  }
+  i {
+    padding: 0 15px;
+  }
+}

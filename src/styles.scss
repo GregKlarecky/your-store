@@ -167,3 +167,21 @@ body {
     display: flex;
   }
 }
+
+.checkout-container {
+  display: grid;
+}
+
+.app-cart-summary {
+  display: none;
+}
+
+@media screen and (min-width: $xs-screen) {
+  .checkout-container {
+    grid-template-columns: 65% 35%;
+  }
+
+  .app-cart-summary {
+    display: block;
+  }
+}

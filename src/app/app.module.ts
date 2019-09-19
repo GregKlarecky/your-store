@@ -29,6 +29,7 @@ import { CartItemComponent } from "./cart-item/cart-item.component";
 import { SafeHTMLPipe } from './pipes/safe-html.pipe';
 import { AddressFormComponent } from './shared/address-form/address-form.component';
 import { CartSummaryComponent } from './shared/cart-summary/cart-summary.component';
+import { DeliveryFormComponent } from './shared/delivery-form/delivery-form.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { CartSummaryComponent } from './shared/cart-summary/cart-summary.compone
     CartItemComponent,
     SafeHTMLPipe,
     AddressFormComponent,
-    CartSummaryComponent
+    CartSummaryComponent,
+    DeliveryFormComponent
   ],
   imports: [
     BrowserModule,
