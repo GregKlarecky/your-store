@@ -24,29 +24,12 @@
         </li>
       </ul>
     </div>
-    <div class="cart-summary">
-      <h2>Summary</h2>
-      <div class="quote">
-        <div class="quote-item">
-          <span>Shopping cost: </span
-          ><b>{{ totalCost | currency: "EUR":"symbol" }}</b>
-        </div>
-        <div class="quote-item">
-          <span>Delivery cost: </span><b>{{ 10 | currency: "EUR":"symbol" }}</b>
-        </div>
-        <div class="quote-item">
-          <span>Total amount: </span
-          ><b>{{ totalCost + 10 | currency: "EUR":"symbol" }}</b>
-        </div>
-      </div>
-      <button
-        class="button checkout-button summary-button"
-        [routerLink]="['/checkout', 'shipping']"
-        [disabled]="!cartItems.length"
-        [class.disabled]="!cartItems.length"
-      >
-        To checkout
-      </button>
+    <div class="summary-wrapper">
+      <app-cart-summary
+        [buttonEnabled]="!cartItems.length"
+        [totalCost]="totalCost"
+        [showButton]="true"
+      ></app-cart-summary>
     </div>
   </div>
 </div>

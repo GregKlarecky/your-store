@@ -27,6 +27,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AddToCartComponent } from "./add-to-cart/add-to-cart.component";
 import { CartItemComponent } from "./cart-item/cart-item.component";
 import { SafeHTMLPipe } from './pipes/safe-html.pipe';
+import { AddressFormComponent } from './shared/address-form/address-form.component';
+import { CartSummaryComponent } from './shared/cart-summary/cart-summary.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { SafeHTMLPipe } from './pipes/safe-html.pipe';
     CounterComponent,
     AddToCartComponent,
     CartItemComponent,
-    SafeHTMLPipe
+    SafeHTMLPipe,
+    AddressFormComponent,
+    CartSummaryComponent
   ],
   imports: [
     BrowserModule,
