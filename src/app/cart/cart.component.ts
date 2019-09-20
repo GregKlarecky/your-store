@@ -49,10 +49,6 @@ export class CartComponent implements OnInit, OnDestroy {
     this.cartItems = this.cartService.getItems();
   }
 
-  get totalCost(): number {
-    return this.cartService.getTotalCost();
-  }
-
   trackByFn(orderlist, item) {
     return item.orderline;
   }
