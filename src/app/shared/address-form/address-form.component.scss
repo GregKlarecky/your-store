@@ -9,28 +9,3 @@
   margin-top: 0.3rem;
   color: $store-red-lighter;
 }
-
-.buttons {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-button {
-  width: 100%;
-}
-
-@media screen and (min-width: $xs-screen) {
-  .buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 1rem;
-  }
-
-  .form-button {
-    width: auto;
-  }
-  .step-back-button {
-    padding: 12px 20px;
-    margin-bottom: 0;
-  }
-}

@@ -49,20 +49,22 @@
         </span>
       </label>
     </div>
-    <button
-      class="button step-back-button w-100"
-      [routerLink]="['/checkout', 'shipping']"
-      type="button"
-    >
-      Go back
-    </button>
-    <button
-      type="submit"
-      class="button checkout-button w-100"
-      [class.disabled]="!paymentForm.valid"
-      [disabled]="!paymentForm.valid"
-    >
-      Continue
-    </button>
+    <div class="buttons">
+      <button
+        class="button step-back-button form-button"
+        [routerLink]="['/checkout', 'shipping']"
+        type="button"
+      >
+        Go back
+      </button>
+      <button
+        type="submit"
+        class="button checkout-button form-button"
+        [class.disabled]="!paymentForm.valid"
+        [disabled]="!paymentForm.valid"
+      >
+        Continue
+      </button>
+    </div>
   </form>
 </div>
