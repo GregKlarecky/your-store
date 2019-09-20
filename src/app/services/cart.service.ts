@@ -6,7 +6,7 @@ import { AddToCartComponent } from "../add-to-cart/add-to-cart.component";
 import { CustomModalService } from "./custom-modal.service";
 import { IAddress } from "src/interfaces/address.interface";
 import { IDeliveryAndPayment } from "src/interfaces/delivery-payment.interface";
-import { Subject, BehaviorSubject } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -170,6 +170,14 @@ export class CartService {
 
   public getDeliveryAndPayment() {
     return Object.assign({}, this.deliveryAndPayment);
+  }
+
+  public getTotalCost() {
+    return this.items.length
+      ? this.items
+          .map(item => item.price * item.amount)
+          .reduce((acc, cur): number => acc + cur)
+      : 0;
   }
 
   clearLocalStorage() {

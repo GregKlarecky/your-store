@@ -1,8 +1,6 @@
 <div class="container checkout-container">
   <app-address-form (formSubmit)="onFormSubmit($event)"></app-address-form>
   <app-cart-summary
-    [buttonEnabled]="'false'"
-    [totalCost]="43"
     [showButton]="false"
     class="app-cart-summary"
   ></app-cart-summary>

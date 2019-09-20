@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
+import { CartService } from "src/app/services/cart.service";
 
 @Component({
   selector: "app-cart-summary",
@@ -6,10 +7,12 @@ import { Component, OnInit, Input } from "@angular/core";
   styleUrls: ["./cart-summary.component.scss"]
 })
 export class CartSummaryComponent implements OnInit {
-  @Input() totalCost: number;
+  public totalCost: number;
   @Input() buttonEnabled: boolean;
   @Input() showButton: boolean;
-  constructor() {}
+  constructor(private cartService: CartService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.totalCost = this.cartService.getTotalCost();
+  }
 }

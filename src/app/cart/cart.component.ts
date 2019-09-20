@@ -50,11 +50,7 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   get totalCost(): number {
-    return this.cartItems.length
-      ? this.cartItems
-          .map(item => item.price * item.amount)
-          .reduce((acc, cur): number => acc + cur)
-      : 0;
+    return this.cartService.getTotalCost();
   }
 
   trackByFn(orderlist, item) {
