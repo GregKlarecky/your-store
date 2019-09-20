@@ -4,9 +4,18 @@
     <div
       class="nav-item show-on-desktop-flex"
       *ngFor="let category of rootCategories"
-      (click)="selectSubcategory(category.id)"
+      (click)="goToCategory(category.id)"
+      (mouseenter)="selectSubcategory(category)"
+      (mouseleave)="turnOff()"
     >
-      {{ category.name }}
+      <span>
+        {{ category.name }}
+      </span>
+      <app-drop-down-menu
+        [subcategories]="subcategories"
+        *ngIf="category.id === selectedCategoryId"
+        (close)="turnOff()"
+      ></app-drop-down-menu>
     </div>
   </div>
   <div class="tools">
@@ -21,29 +30,4 @@
   </div>
 </nav>
 <div class="padding"></div>
-<div class="subcategories-container" *ngIf="subcategories.length">
-  <ul class="list subcategories-list">
-    <li *ngFor="let subcategory of subcategories" class="subcategory-block">
-      <span class="subcategory-label">
-        {{ subcategory.name }}
-      </span>
-      <ul class="list">
-        <li
-          *ngFor="let grandSubcategoryId of subcategory.children"
-          class="grand-subcategory"
-        >
-          {{ getGrandSubcategory(grandSubcategoryId)?.name }}
-        </li>
-      </ul>
-    </li>
-    <li>
-      <span class="subcategory-label">Recommendations</span>
-      <ul class="list recommendations">
-        <li *ngFor="let recommend of recommendations">
-          <img [src]="'assets/banners/' + recommend" alt="" />
-        </li>
-      </ul>
-    </li>
-  </ul>
-</div>
 <app-sidemenu class="show-on-mobile"></app-sidemenu>

@@ -1,0 +1,26 @@
+<div class="subcategories-container" *ngIf="subcategories.length">
+  <ul class="list subcategories-list">
+    <li *ngFor="let subcategory of subcategories" class="subcategory-block">
+      <span class="subcategory-label" (click)="goToCategory(subcategory.id)">
+        {{ subcategory.name }}
+      </span>
+      <ul class="list">
+        <li
+          *ngFor="let grandSubcategoryId of subcategory.children"
+          class="grand-subcategory"
+          (click)="goToCategory(grandSubcategoryId)"
+        >
+          {{ getGrandSubcategory(grandSubcategoryId)?.name }}
+        </li>
+      </ul>
+    </li>
+    <li>
+      <span class="subcategory-label">Recommendations</span>
+      <ul class="list recommendations">
+        <li *ngFor="let recommend of recommendations">
+          <img [src]="'assets/banners/' + recommend" alt="" />
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

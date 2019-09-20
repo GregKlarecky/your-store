@@ -3,6 +3,7 @@ import { Subject } from "rxjs";
 import { ICategory, categories } from "../shared/sidemenu/categories.helper";
 import { IProduct } from "src/interfaces/product.interface";
 import { productList } from "../subcategory/product-list.helper";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root"
@@ -11,7 +12,7 @@ export class CategoriesService {
   categoriesToOpen: Subject<ICategory[]> = new Subject();
   productList: IProduct[] = productList;
   categoriesList: ICategory[] = categories;
-  constructor() {}
+  constructor(private router: Router) {}
 
   getProductsByName(name: string) {
     return this.productList.filter(product => {
@@ -49,5 +50,12 @@ export class CategoriesService {
   ifParentCategoryisShoes(childId: number) {
     const parent = this.getCategoryParentByChildId(childId);
     return parent.name === "shoes";
+  }
+
+  goToCategory(id: number) {
+    const category = this.getCategoryById(id);
+    if (!category.children) {
+      this.router.navigate(["/subcategory", id]);
+    }
   }
 }

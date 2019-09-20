@@ -16,6 +16,7 @@ export class NavbarComponent extends BaseComponent
   implements OnInit, OnDestroy {
   isMenuToggled: boolean;
   itemsCount: number;
+  selectedCategoryId: number;
   categories: ICategory[] = categories;
   rootCategories: ICategory[];
   subcategories: ICategory[] = [];
@@ -36,13 +37,21 @@ export class NavbarComponent extends BaseComponent
     this.rootCategories = this.categoriesService.getCategoriesByParentId(0);
   }
 
-  selectSubcategory(id: number) {
-    this.subcategories = this.categoriesService.getCategoriesByParentId(id);
+  turnOff() {
+    this.selectedCategoryId = null;
   }
 
-  getGrandSubcategory(id: number) {
-    let category = this.categoriesService.getCategoryById(id);
-    return category ? category : {};
+  selectSubcategory(category: ICategory) {
+    if (category.children) {
+      this.selectedCategoryId = category.id;
+      this.subcategories = this.categoriesService.getCategoriesByParentId(
+        category.id
+      );
+    }
+  }
+
+  goToCategory(id: number) {
+    this.categoriesService.goToCategory(id);
   }
 
   watchMenuState() {

@@ -30,6 +30,7 @@ import { SafeHTMLPipe } from './pipes/safe-html.pipe';
 import { AddressFormComponent } from './shared/address-form/address-form.component';
 import { CartSummaryComponent } from './shared/cart-summary/cart-summary.component';
 import { DeliveryFormComponent } from './shared/delivery-form/delivery-form.component';
+import { DropDownMenuComponent } from './drop-down-menu/drop-down-menu.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { DeliveryFormComponent } from './shared/delivery-form/delivery-form.comp
     SafeHTMLPipe,
     AddressFormComponent,
     CartSummaryComponent,
-    DeliveryFormComponent
+    DeliveryFormComponent,
+    DropDownMenuComponent
   ],
   imports: [
     BrowserModule,
