@@ -1,59 +1,62 @@
-<div class="product-container product">
-  <div class="product-image-wrapper">
-    <img
-      class="product-image"
-      [src]="'assets/shoes/' + product?.image_url"
-      alt="product image"
-    />
-  </div>
-  <div class="product-details">
-    <h1 class="product-name">{{ product?.name }}</h1>
-    <span class="product-sku">{{ product?.sku }}</span>
-    <span class="product-price">{{
-      product?.price | currency: "EUR":"symbol"
-    }}</span>
-    <span class="product-delivery"> free delivery</span>
-    <button class="button description">
-      <i class="fas fa-list"></i><span> Description</span>
-    </button>
-    <div class="size-wrapper" *ngIf="ifShoe">
-      <span
-        class="size-select-label"
-        [class.red-text]="!productSize.valid && touched"
-        >Choose your size:</span
-      >
-      <input
-        class="size-select"
-        type="radio"
-        name="shoe-size"
-        *ngFor="let size of sizes"
-        [id]="size"
-        [value]="size"
-        [formControl]="productSize"
+<div class="container">
+  <div class="product-container product">
+    <div class="product-image-wrapper">
+      <img
+        class="product-image"
+        [src]="'assets/shoes/' + product?.image_url"
+        alt="product image"
       />
-      <div
-        class="nice-select"
-        (click)="openSizes()"
-        [class.red-border]="!productSize.valid && touched"
-      >
-        <span>{{ productSize.value }}</span>
-        <i class="fas fa-chevron-down"></i>
-        <ul
-          class="list size-list"
-          [ngClass]="{
-            'no-animation': !sizesClicked,
-            'swing-bottom-forward': sizesOpened && sizesClicked,
-            'swing-bottom-bck': !sizesOpened && sizesClicked
-          }"
-        >
-          <li *ngFor="let size of sizes" class="single-size">
-            <label [for]="size">{{ size }}</label>
-          </li>
-        </ul>
-      </div>
     </div>
-    <button class="button add-to-cart" (click)="addToCart()">
-      Add to cart
-    </button>
+    <div class="product-details">
+      <h1 class="product-name">{{ product?.name }}</h1>
+      <span class="product-sku">{{ product?.sku }}</span>
+      <span class="product-price">{{
+        product?.price | currency: "EUR":"symbol"
+      }}</span>
+      <span class="product-delivery"> free delivery</span>
+      <button class="button description">
+        <i class="fas fa-list"></i><span> Description</span>
+      </button>
+      <div class="size-wrapper" *ngIf="ifShoe">
+        <span
+          class="size-select-label"
+          [class.red-text]="!productSize.valid && touched"
+          >Choose your size:</span
+        >
+        <input
+          class="size-select"
+          type="radio"
+          name="shoe-size"
+          *ngFor="let size of sizes"
+          [id]="size"
+          [value]="size"
+          [formControl]="productSize"
+        />
+        <div
+          class="nice-select"
+          (click)="openSizes()"
+          [class.red-border]="!productSize.valid && touched"
+        >
+          <span>{{ productSize.value }}</span>
+          <i class="fas fa-chevron-down"></i>
+          <ul
+            class="list size-list"
+            [ngClass]="{
+              'no-animation': !sizesClicked,
+              'swing-bottom-forward': sizesOpened && sizesClicked,
+              'swing-bottom-bck': !sizesOpened && sizesClicked
+            }"
+          >
+            <li *ngFor="let size of sizes" class="single-size">
+              <label [for]="size">{{ size }}</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <button class="button add-to-cart" (click)="addToCart()">
+        Add to cart
+      </button>
+    </div>
   </div>
+  <app-carousel class="show-on-desktop"></app-carousel>
 </div>

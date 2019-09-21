@@ -34,6 +34,8 @@ import { DropDownMenuComponent } from "./components/drop-down-menu/drop-down-men
 import { FiltersComponent } from "./components/filters/filters.component";
 import { CustomRadioInputComponent } from "./shared/custom-radio-input/custom-radio-input.component";
 import { Ng5SliderModule } from "ng5-slider";
+import { NguCarouselModule } from "@ngu/carousel";
+import { CarouselComponent } from './shared/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -60,10 +62,10 @@ import { Ng5SliderModule } from "ng5-slider";
     DeliveryFormComponent,
     DropDownMenuComponent,
     FiltersComponent,
-    CustomRadioInputComponent
+    CustomRadioInputComponent,
+    CarouselComponent
   ],
   imports: [
-    Ng5SliderModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
@@ -73,7 +75,9 @@ import { Ng5SliderModule } from "ng5-slider";
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production // Restrict extension to log-only mode
     }),
-    NgbModule
+    NgbModule,
+    Ng5SliderModule,
+    NguCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent],
