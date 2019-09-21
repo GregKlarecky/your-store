@@ -210,3 +210,24 @@ body {
     display: flex;
   }
 }
+
+.ng5-slider {
+  .ng5-slider-pointer {
+    width: 20px !important;
+    height: 20px !important;
+    top: -8px !important;
+    background-color: #000 !important;
+    &:after {
+      content: none !important;
+    }
+  }
+  .ng5-slider-selection {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+  }
+}
+
+.link {
+  &:focus {
+    outline: none;
+  }
+}

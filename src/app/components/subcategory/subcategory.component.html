@@ -1,4 +1,8 @@
 <div class="container">
+  <app-filters
+    class="show-on-desktop"
+    (values)="filterByPrice($event)"
+  ></app-filters>
   <ul class="list product-list">
     <li class="list-item shadow" *ngFor="let product of productList">
       <app-product-card

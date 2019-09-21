@@ -1,0 +1,17 @@
+.filter {
+  margin-bottom: 3rem;
+}
+
+.subcategories-list {
+  li {
+    padding: 0.3rem 1rem;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.banner {
+  cursor: pointer;
+}

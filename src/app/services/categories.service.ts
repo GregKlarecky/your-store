@@ -14,18 +14,6 @@ export class CategoriesService {
   categoriesList: ICategory[] = categories;
   constructor(private router: Router) {}
 
-  getProductsByName(name: string) {
-    return this.productList.filter(product => {
-      return product.name === name;
-    });
-  }
-
-  getProductListByCategoryId(id: number) {
-    return this.productList.filter(product => {
-      return product.category_id === id;
-    });
-  }
-
   getCategoryById(id: number) {
     return this.categoriesList.find(category => {
       return category.id === id;

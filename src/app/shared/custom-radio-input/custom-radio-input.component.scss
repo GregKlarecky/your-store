@@ -1,0 +1,31 @@
+input[type="radio"] {
+  display: none;
+}
+
+.sizes-wrapper {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  height: 2.5rem;
+}
+
+label {
+  cursor: pointer;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  transition: 300ms;
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  margin: 0 0.1rem !important;
+  border-radius: 4px;
+  &:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.selected-size {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}

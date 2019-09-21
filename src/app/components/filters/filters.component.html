@@ -1,1 +1,27 @@
-<p>filters works!</p>
+<div class="subcategories" *ngIf="parentCategory.id !== 0">
+  <ul class="list subcategories-list filter">
+    <h2>{{ parentCategory.name | titlecase }}</h2>
+    <li
+      *ngFor="let subcategory of subcategories"
+      [routerLink]="['/subcategory', subcategory?.id]"
+    >
+      {{ subcategory?.name }}
+    </li>
+  </ul>
+</div>
+<div class="size filter">
+  <h2>Size</h2>
+  <app-custom-radio-input></app-custom-radio-input>
+</div>
+<div class="price filter">
+  <h2>Price</h2>
+  <ng5-slider
+    [(value)]="value"
+    [options]="options"
+    [(highValue)]="highValue"
+    (userChangeEnd)="filterByPrice()"
+  ></ng5-slider>
+</div>
+<div class="banner link" [routerLink]="['/subcategory', 21]">
+  <img src="assets/banners/outlet.jpg" alt="" />
+</div>

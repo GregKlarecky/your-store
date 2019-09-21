@@ -32,6 +32,8 @@ import { CartItemComponent } from "./components/cart-item/cart-item.component";
 import { AddToCartComponent } from "./components/add-to-cart/add-to-cart.component";
 import { DropDownMenuComponent } from "./components/drop-down-menu/drop-down-menu.component";
 import { FiltersComponent } from "./components/filters/filters.component";
+import { CustomRadioInputComponent } from "./shared/custom-radio-input/custom-radio-input.component";
+import { Ng5SliderModule } from "ng5-slider";
 
 @NgModule({
   declarations: [
@@ -57,9 +59,11 @@ import { FiltersComponent } from "./components/filters/filters.component";
     CartSummaryComponent,
     DeliveryFormComponent,
     DropDownMenuComponent,
-    FiltersComponent
+    FiltersComponent,
+    CustomRadioInputComponent
   ],
   imports: [
+    Ng5SliderModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
