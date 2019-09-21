@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { ICategory } from "../shared/sidemenu/categories.helper";
-import { recommendations } from "../shared/navbar/recommendations.helper";
-import { CategoriesService } from "../services/categories.service";
+import { recommendations } from "src/app/shared/navbar/recommendations.helper";
+import { CategoriesService } from "src/app/services/categories.service";
+import { ICategory } from "src/app/shared/sidemenu/categories.helper";
 
 @Component({
   selector: "app-drop-down-menu",

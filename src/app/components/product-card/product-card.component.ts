@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, OnDestroy } from "@angular/core";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { CustomModalService } from "../services/custom-modal.service";
 import { IProduct } from "src/interfaces/product.interface";
 import { AddToCartComponent } from "../add-to-cart/add-to-cart.component";
-import { CartService } from "../services/cart.service";
 import { takeUntil } from "rxjs/operators";
-import { BaseComponent } from "../shared/base/base.component";
+import { CustomModalService } from "src/app/services/custom-modal.service";
+import { CartService } from "src/app/services/cart.service";
+import { BaseComponent } from "src/app/shared/base/base.component";
 
 @Component({
   selector: "app-product-card",

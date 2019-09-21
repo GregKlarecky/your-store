@@ -1,9 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { IProduct } from "src/interfaces/product.interface";
 import { productList } from "../subcategory/product-list.helper";
-import { CartService } from "../services/cart.service";
 import { ICartItem } from "src/interfaces/cart-item.interface";
-import { FooterService } from "../services/footer.service";
 import {
   trigger,
   transition,
@@ -11,6 +9,8 @@ import {
   animate,
   keyframes
 } from "@angular/animations";
+import { CartService } from "src/app/services/cart.service";
+import { FooterService } from "src/app/services/footer.service";
 
 @Component({
   selector: "app-cart",

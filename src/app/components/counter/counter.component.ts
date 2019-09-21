@@ -6,8 +6,8 @@ import {
   EventEmitter,
   OnDestroy
 } from "@angular/core";
-import { BaseComponent } from "../shared/base/base.component";
 import { tap, delay, takeUntil } from "rxjs/operators";
+import { BaseComponent } from "src/app/shared/base/base.component";
 
 @Component({
   selector: "app-counter",

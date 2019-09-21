@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { IProduct } from "src/interfaces/product.interface";
-import { productList } from "./product-list.helper";
 import { ActivatedRoute } from "@angular/router";
-import { CategoriesService } from "../services/categories.service";
+import { CategoriesService } from "src/app/services/categories.service";
 
 @Component({
   selector: "app-subcategory",

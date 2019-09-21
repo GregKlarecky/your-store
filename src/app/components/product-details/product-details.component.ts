@@ -3,10 +3,10 @@ import { ActivatedRoute } from "@angular/router";
 import { IProduct } from "src/interfaces/product.interface";
 import { productList } from "../subcategory/product-list.helper";
 import { FormControl, Validators } from "@angular/forms";
-import { BaseComponent } from "../shared/base/base.component";
-import { CartService } from "../services/cart.service";
 import { stringValidator } from "./size.validator";
-import { CategoriesService } from "../services/categories.service";
+import { BaseComponent } from "src/app/shared/base/base.component";
+import { CartService } from "src/app/services/cart.service";
+import { CategoriesService } from "src/app/services/categories.service";
 
 @Component({
   selector: "app-product-details",

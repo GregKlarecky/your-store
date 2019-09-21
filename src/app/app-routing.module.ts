@@ -1,14 +1,15 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { HomepageComponent } from "./homepage/homepage.component";
-import { SubcategoryComponent } from "./subcategory/subcategory.component";
-import { CartComponent } from "./cart/cart.component";
-import { ProductDetailsComponent } from "./product-details/product-details.component";
-import { ShippingComponent } from "./shipping/shipping.component";
-import { PaymentComponent } from "./payment/payment.component";
-import { OrderComponent } from "./order/order.component";
-import { OrderCompleteComponent } from "./order-complete/order-complete.component";
+
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { HomepageComponent } from "./components/homepage/homepage.component";
+import { SubcategoryComponent } from "./components/subcategory/subcategory.component";
+import { CartComponent } from "./components/cart/cart.component";
+import { ProductDetailsComponent } from "./components/product-details/product-details.component";
+import { ShippingComponent } from "./components/shipping/shipping.component";
+import { PaymentComponent } from "./components/payment/payment.component";
+import { OrderComponent } from "./components/order/order.component";
+import { OrderCompleteComponent } from "./components/order-complete/order-complete.component";
 
 const routes: Routes = [
   {

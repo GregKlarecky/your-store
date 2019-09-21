@@ -1,10 +1,10 @@
 import { Component, OnInit, Input, OnDestroy } from "@angular/core";
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
-import { CustomModalService } from "../services/custom-modal.service";
 import { trigger, transition, style, animate } from "@angular/animations";
 import { Validators, FormControl } from "@angular/forms";
-import { BaseComponent } from "../shared/base/base.component";
 import { takeUntil } from "rxjs/operators";
+import { BaseComponent } from "src/app/shared/base/base.component";
+import { CustomModalService } from "src/app/services/custom-modal.service";
 
 @Component({
   selector: "app-add-to-cart",

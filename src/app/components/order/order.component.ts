@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { IProduct } from "src/interfaces/product.interface";
-import { CartService } from "../services/cart.service";
 import { IAddress } from "src/interfaces/address.interface";
+import { CartService } from "src/app/services/cart.service";
 
 @Component({
   selector: "app-order",

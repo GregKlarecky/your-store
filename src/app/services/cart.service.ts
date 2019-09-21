@@ -2,11 +2,11 @@ import { Injectable } from "@angular/core";
 import { IProduct } from "src/interfaces/product.interface";
 import { ICartItem } from "src/interfaces/cart-item.interface";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { AddToCartComponent } from "../add-to-cart/add-to-cart.component";
 import { CustomModalService } from "./custom-modal.service";
 import { IAddress } from "src/interfaces/address.interface";
 import { IDeliveryAndPayment } from "src/interfaces/delivery-payment.interface";
 import { BehaviorSubject } from "rxjs";
+import { AddToCartComponent } from "../components/add-to-cart/add-to-cart.component";
 
 @Injectable({
   providedIn: "root"

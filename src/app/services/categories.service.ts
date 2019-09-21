@@ -2,8 +2,8 @@ import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { ICategory, categories } from "../shared/sidemenu/categories.helper";
 import { IProduct } from "src/interfaces/product.interface";
-import { productList } from "../subcategory/product-list.helper";
 import { Router } from "@angular/router";
+import { productList } from "../components/subcategory/product-list.helper";
 
 @Injectable({
   providedIn: "root"

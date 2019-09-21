@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { paymentyOptions } from "src/app/payment/payment-options";
-import { deliveryOptions } from "src/app/payment/delivery-options";
 import { Validators, FormBuilder } from "@angular/forms";
 import { Router } from "@angular/router";
 import { CartService } from "src/app/services/cart.service";
+import { paymentyOptions } from "src/app/components/payment/payment-options";
+import { deliveryOptions } from "src/app/components/payment/delivery-options";
 
 @Component({
   selector: "app-delivery-form",
