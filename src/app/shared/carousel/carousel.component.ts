@@ -19,12 +19,8 @@ import { slider } from "src/app/animation/slider.animation";
 })
 export class CarouselComponent implements OnInit {
   @Input() name: string;
-  imgags = [
-    "assets/bg.jpg",
-    "assets/car.png",
-    "assets/canberra.jpg",
-    "assets/holi.jpg"
-  ];
+  @Input() productList: string;
+
   public carouselTileItems$: Observable<number[]>;
   public carouselTileConfig: NguCarouselConfig = {
     grid: { xs: 1, sm: 1, md: 1, lg: 5, all: 0 },
@@ -49,7 +45,7 @@ export class CarouselComponent implements OnInit {
       map(val => {
         const data = (this.tempData = [
           ...this.tempData,
-          this.imgags[Math.floor(Math.random() * this.imgags.length)]
+          this.productList[Math.floor(Math.random() * this.productList.length)]
         ]);
         return data;
       })

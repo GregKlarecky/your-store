@@ -7,6 +7,7 @@ import { stringValidator } from "./size.validator";
 import { BaseComponent } from "src/app/shared/base/base.component";
 import { CartService } from "src/app/services/cart.service";
 import { CategoriesService } from "src/app/services/categories.service";
+import { ProductsService } from "src/app/services/products.service";
 
 @Component({
   selector: "app-product-details",
@@ -16,7 +17,7 @@ import { CategoriesService } from "src/app/services/categories.service";
 export class ProductDetailsComponent extends BaseComponent
   implements OnInit, OnDestroy {
   public sizes: number[] = [42, 43, 44, 45, 46, 47];
-  public productList: IProduct[] = productList;
+  public similarProducts: IProduct[] = productList;
   public product: IProduct;
   public ifShoe: boolean;
   public sizesClicked: boolean = false;
@@ -31,6 +32,7 @@ export class ProductDetailsComponent extends BaseComponent
   constructor(
     private route: ActivatedRoute,
     private cartService: CartService,
+    private productsService: ProductsService,
     private categoriesService: CategoriesService
   ) {
     super();
@@ -43,13 +45,20 @@ export class ProductDetailsComponent extends BaseComponent
   public getProductSku() {
     this.route.paramMap.subscribe(paramMap => {
       const sku = paramMap.get("sku");
-      this.product = this.productList.find(product => {
+      this.product = productList.find(product => {
         return product.sku === sku;
       });
+      this.similarProducts = this.productsService.getProductListByCategoryId(
+        this.product.category_id
+      );
       this.ifShoe = this.categoriesService.ifParentCategoryisShoes(
         this.product.category_id
       );
     });
+  }
+
+  public getSimilarProducts(id: number) {
+    this.similarProducts = this.productsService.getProductListByCategoryId(id);
   }
 
   public openSizes() {

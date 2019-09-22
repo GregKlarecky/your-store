@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="product-container product">
+  <div class="product-container product mb-5">
     <div class="product-image-wrapper">
       <img
         class="product-image"
@@ -58,5 +58,11 @@
       </button>
     </div>
   </div>
-  <app-carousel class="show-on-desktop"></app-carousel>
+  <div class="carousel-wrapper">
+    <h2>Similar products</h2>
+    <app-carousel
+      class="show-on-desktop"
+      [productList]="similarProducts"
+    ></app-carousel>
+  </div>
 </div>
