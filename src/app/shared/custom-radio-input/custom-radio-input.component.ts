@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, Validators } from "@angular/forms";
+import { FormControl } from "@angular/forms";
 
 @Component({
   selector: "app-custom-radio-input",
@@ -7,9 +7,18 @@ import { FormControl, Validators } from "@angular/forms";
   styleUrls: ["./custom-radio-input.component.scss"]
 })
 export class CustomRadioInputComponent implements OnInit {
-  public productSize = new FormControl("", [Validators.required]);
-  public sizes: number[] = [42, 43, 44, 45, 46, 47];
+  public option = new FormControl("");
+  public values: any[] = [43, 44, 45, 46, 47, 48];
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.stampValues();
+  }
+
+  stampValues() {
+    this.values = this.values.map(value => {
+      return { stamp: value + ".", value: value };
+    });
+  }
 }

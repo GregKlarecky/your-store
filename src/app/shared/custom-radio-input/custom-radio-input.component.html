@@ -1,16 +1,16 @@
-<div class="sizes-wrapper">
+<div class="values-wrapper">
   <input
-    [formControl]="productSize"
+    [formControl]="option"
     type="radio"
-    *ngFor="let size of sizes"
-    [value]="size"
-    name="shoeSize"
-    [id]="size"
+    *ngFor="let value of values"
+    [value]="value.value"
+    name="option"
+    [id]="value.stamp"
   />
   <label
-    *ngFor="let size of sizes"
-    [for]="size"
-    [class.selected-size]="productSize.value === size"
-    >{{ size }}</label
+    *ngFor="let value of values"
+    [for]="value.stamp"
+    [class.selected-size]="option.value === value.value"
+    >{{ value.value }}</label
   >
 </div>

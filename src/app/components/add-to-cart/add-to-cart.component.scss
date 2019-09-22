@@ -16,6 +16,7 @@ input[type="radio"] {
 }
 
 label {
+  cursor: pointer;
   border: 2px solid transparent;
   box-sizing: border-box;
   transition: 300ms;
