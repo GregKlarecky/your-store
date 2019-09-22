@@ -370,7 +370,7 @@ export const productList: IProduct[] = [
   },
   {
     name: "tesa",
-    sku: "DKI179-BL60-0a",
+    sku: "DKI179-BL60-0sa",
     price: 39.9,
     image_url: "DKI179-BL6-E1SS-9900-0a.jpg",
     category_id: 22

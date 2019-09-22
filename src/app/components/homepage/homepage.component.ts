@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { IBanner } from "src/interfaces/banners.interface";
+import { productList } from "../subcategory/product-list.helper";
 
 @Component({
   selector: "app-homepage",
@@ -40,4 +41,13 @@ export class HomepageComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  public checkSkusIfRepeat() {
+    productList.forEach(product => {
+      const subList = productList.filter(item => item.sku === product.sku);
+      if (subList.length >= 2) {
+        console.log(product.sku);
+      }
+    });
+  }
 }
