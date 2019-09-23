@@ -13,7 +13,7 @@ import { AddToCartComponent } from "../components/add-to-cart/add-to-cart.compon
 })
 export class CartService {
   public items: ICartItem[];
-  public orderline: number;
+  public orderline: number = 1;
   public address: IAddress;
   public deliveryAndPayment: IDeliveryAndPayment;
   public newCart: BehaviorSubject<ICartItem[]>;
@@ -129,7 +129,7 @@ export class CartService {
     const items = localStorage.getItem("cart-ys");
     this.items = items ? JSON.parse(items) : [];
     let orderline = +JSON.parse(localStorage.getItem("cartId"));
-    this.orderline = orderline ? ++orderline : 0;
+    this.orderline = orderline ? ++orderline : 1;
     let address = JSON.parse(localStorage.getItem("address-ys"));
     this.address = address;
     let deliveryAndPayment = JSON.parse(
