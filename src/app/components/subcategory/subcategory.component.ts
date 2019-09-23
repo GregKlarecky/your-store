@@ -3,6 +3,7 @@ import { IProduct } from "src/interfaces/product.interface";
 import { ActivatedRoute } from "@angular/router";
 import { CategoriesService } from "src/app/services/categories.service";
 import { ProductsService } from "src/app/services/products.service";
+import { Options } from "ng5-slider";
 
 @Component({
   selector: "app-subcategory",
@@ -15,6 +16,7 @@ export class SubcategoryComponent implements OnInit {
   public minPrice: number = 0;
   public maxPrice: number = 100;
   public ifShoeCategory: boolean;
+  public initialOptions: Options;
   constructor(
     private route: ActivatedRoute,
     private categoriesService: CategoriesService,
@@ -29,6 +31,7 @@ export class SubcategoryComponent implements OnInit {
 
   getCategoryIdAndProductList() {
     this.route.paramMap.subscribe(paramMap => {
+      this.clearFilters();
       this.categoryId = parseInt(paramMap.get("id"), 10);
       this.checkIfShoeCategory();
       if (this.categoryId === 11) {
@@ -36,7 +39,23 @@ export class SubcategoryComponent implements OnInit {
       } else {
         this.getProductList();
       }
+      this.getInitialOptions();
     });
+  }
+
+  getInitialOptions() {
+    const floor = Math.min(...this.getPricesList());
+    const ceil = Math.max(...this.getPricesList());
+    this.initialOptions = {
+      floor,
+      ceil,
+      draggableRange: false
+    };
+  }
+
+  clearFilters() {
+    this.minPrice = 0;
+    this.maxPrice = 100;
   }
 
   getProductList() {
@@ -45,6 +64,10 @@ export class SubcategoryComponent implements OnInit {
       this.minPrice,
       this.maxPrice
     );
+  }
+
+  getPricesList() {
+    return this.productList.map(product => product.price);
   }
 
   filterByPrice($event) {

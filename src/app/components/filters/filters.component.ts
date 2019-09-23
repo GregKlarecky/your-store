@@ -1,4 +1,12 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  Input,
+  OnChanges,
+  SimpleChanges
+} from "@angular/core";
 import { CategoriesService } from "src/app/services/categories.service";
 import { ICategory } from "src/app/shared/sidemenu/categories.helper";
 import { ActivatedRoute } from "@angular/router";
@@ -11,17 +19,25 @@ import { IValues } from "src/interfaces/values.interface";
   templateUrl: "./filters.component.html",
   styleUrls: ["./filters.component.scss"]
 })
-export class FiltersComponent implements OnInit {
+export class FiltersComponent implements OnInit, OnChanges {
   public subcategories: ICategory[];
   public parentCategory: ICategory;
   public value: number = 0;
   public highValue: number = 100;
   @Output() values: EventEmitter<IValues> = new EventEmitter();
-  public options: Options = {
+  @Input() options: Options = {
     floor: 0,
     ceil: 100,
     draggableRange: false
   };
+
+  ngOnChanges(changes: SimpleChanges) {
+    const options = changes["options"];
+    if (options.currentValue) {
+      this.value = options.currentValue.floor;
+      this.highValue = options.currentValue.ceil;
+    }
+  }
 
   constructor(
     private categoriesService: CategoriesService,
