@@ -3,8 +3,9 @@
     class="show-on-desktop"
     [options]="initialOptions"
     (values)="filterByPrice($event)"
+    [sizeList]="sizeList"
   ></app-filters>
-  <ul class="list product-list">
+  <ul class="list product-list" *ngIf="productList.length">
     <li class="list-item shadow" *ngFor="let product of productList">
       <app-product-card
         [product]="product"
@@ -12,4 +13,7 @@
       ></app-product-card>
     </li>
   </ul>
+  <div class="no-products-found" *ngIf="!productList.length">
+    <span> No products found </span>
+  </div>
 </div>

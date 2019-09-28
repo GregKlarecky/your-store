@@ -23,6 +23,7 @@ export class FiltersComponent implements OnInit, OnChanges {
   public subcategories: ICategory[];
   public parentCategory: ICategory;
   public value: number = 0;
+  @Input() sizeList: number[];
   public highValue: number = 100;
   @Output() values: EventEmitter<IValues> = new EventEmitter();
   @Input() options: Options = {

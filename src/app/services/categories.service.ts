@@ -1,31 +1,43 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { ICategory, categories } from "../shared/sidemenu/categories.helper";
-import { IProduct } from "src/interfaces/product.interface";
 import { Router } from "@angular/router";
-import { productList } from "../components/subcategory/product-list.helper";
 
 @Injectable({
   providedIn: "root"
 })
 export class CategoriesService {
-  categoriesToOpen: Subject<ICategory[]> = new Subject();
-  productList: IProduct[] = productList;
-  categoriesList: ICategory[] = categories;
+  public categoriesToOpen: Subject<ICategory[]> = new Subject();
+  public categoriesList: ICategory[] = categories;
+  public sizeList: Subject<number[]> = new Subject();
+  public menSizes: any[] = [undefined, 43, 44, 45, 46, 47];
+  public womenSizes: any[] = [undefined, 35, 36, 37, 38, 39];
+
   constructor(private router: Router) {}
 
-  getCategoryById(id: number) {
+  public chooseSizelist(id: number) {
+    const parent = this.getCategoryParentByChildId(id);
+    const grandparent = this.getCategoryParentByChildId(parent.id);
+    if (grandparent.name === "men") {
+      return this.menSizes;
+    } else if (grandparent.name === "women") {
+      return this.womenSizes;
+    }
+    return [];
+  }
+
+  public getCategoryById(id: number) {
     return this.categoriesList.find(category => {
       return category.id === id;
     });
   }
-  getCategoriesByParentId(id: number) {
+  public getCategoriesByParentId(id: number) {
     return this.categoriesList.filter(category => {
       return category.parent === id;
     });
   }
 
-  getCategoryParentByChildId(id: number) {
+  public getCategoryParentByChildId(id: number) {
     const child = this.categoriesList.find(category => {
       return category.id === id;
     });
@@ -35,12 +47,12 @@ export class CategoriesService {
     return parent;
   }
 
-  ifParentCategoryisShoes(childId: number) {
+  public ifParentCategoryisShoes(childId: number) {
     const parent = this.getCategoryParentByChildId(childId);
     return parent.name === "shoes";
   }
 
-  goToCategory(id: number) {
+  public goToCategory(id: number) {
     const category = this.getCategoryById(id);
     if (!category.children) {
       this.router.navigate(["/subcategory", id]);

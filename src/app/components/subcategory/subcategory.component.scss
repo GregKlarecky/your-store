@@ -18,6 +18,17 @@
   min-height: 270px;
 }
 
+.no-products-found {
+  font-size: 2.5rem;
+  color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  span {
+    text-align: center;
+    margin-top: 20%;
+  }
+}
+
 @media screen and (min-width: $md-screen) {
   .product-list {
     grid-template-columns: 1fr 1fr 1fr;
