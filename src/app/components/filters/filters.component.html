@@ -9,7 +9,7 @@
     </li>
   </ul>
 </div>
-<div class="size filter">
+<div class="size filter" *ngIf="sizeList">
   <h2>Size</h2>
   <app-custom-radio-input [values]="sizeList"></app-custom-radio-input>
 </div>

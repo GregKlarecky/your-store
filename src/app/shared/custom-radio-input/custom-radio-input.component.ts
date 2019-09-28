@@ -1,4 +1,10 @@
-import { Component, OnInit, Input } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  SimpleChanges
+} from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { BaseComponent } from "../base/base.component";
 import { CustomRadioInputService } from "src/app/services/custom-radio-input.service";
@@ -9,7 +15,8 @@ import { takeUntil, tap } from "rxjs/operators";
   templateUrl: "./custom-radio-input.component.html",
   styleUrls: ["./custom-radio-input.component.scss"]
 })
-export class CustomRadioInputComponent extends BaseComponent implements OnInit {
+export class CustomRadioInputComponent extends BaseComponent
+  implements OnInit, OnChanges {
   public option = new FormControl("");
   @Input() values: any[];
 
@@ -17,8 +24,13 @@ export class CustomRadioInputComponent extends BaseComponent implements OnInit {
     super();
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes["values"]) {
+      this.stampValues();
+    }
+  }
+
   ngOnInit() {
-    this.stampValues();
     this.option.valueChanges.subscribe(a => {
       this.customRadio.customRadioValule.next(this.option.value);
     });

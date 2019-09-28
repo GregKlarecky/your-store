@@ -18,12 +18,13 @@ export class CategoriesService {
   public chooseSizelist(id: number) {
     const parent = this.getCategoryParentByChildId(id);
     const grandparent = this.getCategoryParentByChildId(parent.id);
-    if (grandparent.name === "men") {
+
+    if (parent.name === "shoes" && grandparent.name === "men") {
       return this.menSizes;
-    } else if (grandparent.name === "women") {
+    } else if (parent.name === "shoes" && grandparent.name === "women") {
       return this.womenSizes;
     }
-    return [];
+    return undefined;
   }
 
   public getCategoryById(id: number) {
