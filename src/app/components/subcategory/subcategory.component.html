@@ -9,7 +9,7 @@
     class="button-show-filters show-on-mobile"
     [toggleOn]="true"
   ></app-filters-button>
-  <ul class="list product-list" *ngIf="productList.length">
+  <ul class="list product-list" *ngIf="productList?.length">
     <li class="list-item shadow" *ngFor="let product of productList">
       <app-product-card
         [product]="product"
@@ -17,7 +17,7 @@
       ></app-product-card>
     </li>
   </ul>
-  <div class="no-products-found" *ngIf="!productList.length">
+  <div class="no-products-found" *ngIf="!productList?.length">
     <span> No products found </span>
   </div>
 </div>

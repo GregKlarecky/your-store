@@ -24,6 +24,10 @@
         (userChangeEnd)="filterByPrice()"
       ></ng5-slider>
     </div>
+    <div class="sort filter">
+      <h2>Sort</h2>
+      <app-sort></app-sort>
+    </div>
     <div
       class="banner link show-on-desktop"
       [routerLink]="['/subcategory', 21]"
@@ -37,4 +41,8 @@
     [toggleOn]="false"
   ></app-filters-button>
 </div>
-<div class="backdrop backdrop-filters show-on-mobile" *ngIf="showFilters"></div>
+<div
+  class="backdrop backdrop-filters show-on-mobile"
+  *ngIf="showFilters"
+  (click)="closeFilters()"
+></div>

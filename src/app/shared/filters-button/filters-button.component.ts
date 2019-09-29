@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from "@angular/core";
 @Component({
   selector: "app-filters-button",
   template: `
-    <div class="show-on-mobie button-show-filters" (click)="closeFilters()">
+    <div class="show-on-mobie button-show-filters">
       <span *ngIf="!toggleOn"
         >Hide filters <i class="fas fa-chevron-up"></i>
       </span>

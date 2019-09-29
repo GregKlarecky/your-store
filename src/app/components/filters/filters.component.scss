@@ -1,7 +1,11 @@
 @import "~src/assets/styles/variables";
 
 .filter {
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 25px;
 }
 
 .subcategories-list {
@@ -31,39 +35,16 @@
   width: 80%;
   display: flex;
   justify-content: space-between;
-  // grid-template-columns: 1fr 25px;
-  // grid-column-gap: 1rem;
-  // grid-template-areas:
-  //   "button"
-  //   "button"
-  //   "button"
-  //   "button";
 }
 
 .wrapper {
   flex: 1;
-  margin: 1rem;
+  margin-right: 1rem;
 }
 
 .active {
   left: 0;
 }
-
-// .price {
-//   grid-area: price;
-// }
-// .subcategory {
-//   grid-area: subcategory;
-// }
-// .sizes {
-//   grid-area: sizes;
-// }
-// .banner {
-//   grid-area: banner;
-// }
-// .button {
-//   grid-area: button;
-// }
 
 @media screen and (min-width: $xs-screen) {
   .filters-container {
@@ -77,5 +58,12 @@
     position: static;
     width: 100%;
     padding: 0;
+  }
+  h2 {
+    font-size: 30px;
+  }
+
+  .filter {
+    margin-bottom: 3rem;
   }
 }

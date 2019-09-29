@@ -37,6 +37,7 @@ import { Ng5SliderModule } from "ng5-slider";
 import { NguCarouselModule } from "@ngu/carousel";
 import { CarouselComponent } from './shared/carousel/carousel.component';
 import { FiltersButtonComponent } from './shared/filters-button/filters-button.component';
+import { SortComponent } from './components/sort/sort.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { FiltersButtonComponent } from './shared/filters-button/filters-button.c
     FiltersComponent,
     CustomRadioInputComponent,
     CarouselComponent,
-    FiltersButtonComponent
+    FiltersButtonComponent,
+    SortComponent
   ],
   imports: [
     BrowserModule,

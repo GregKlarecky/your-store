@@ -8,6 +8,8 @@ import { takeUntil, tap } from "rxjs/operators";
 import { BaseComponent } from "src/app/shared/base/base.component";
 import { CustomRadioInputService } from "src/app/services/custom-radio-input.service";
 import { CustomModalService } from "src/app/services/custom-modal.service";
+import { ISortOptions } from "src/interfaces/sort-options.interface";
+import { initialSort } from "./products-sort.helper";
 
 @Component({
   selector: "app-subcategory",
@@ -24,6 +26,7 @@ export class SubcategoryComponent extends BaseComponent implements OnInit {
   public ifShoeCategory: boolean;
   public initialOptions: Options;
   public showFilters: boolean = false;
+  public sortOptions: ISortOptions = initialSort;
   constructor(
     private route: ActivatedRoute,
     private categoriesService: CategoriesService,
@@ -39,6 +42,16 @@ export class SubcategoryComponent extends BaseComponent implements OnInit {
     this.getCategoryIdAndProductList();
     this.checkIfShoeCategory();
     this.filterBySize();
+    this.sortList();
+  }
+
+  public sortList() {
+    this.productsService.sortOptions
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((options: ISortOptions) => {
+        this.sortOptions = options;
+        this.getProductList();
+      });
   }
 
   public openFilters() {
@@ -47,14 +60,11 @@ export class SubcategoryComponent extends BaseComponent implements OnInit {
 
   public filterBySize() {
     this.customRadio.customRadioValule
-      .pipe(
-        takeUntil(this.unsubscribe$),
-        tap(size => {
-          this.size = size;
-          this.getProductList();
-        })
-      )
-      .subscribe();
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(size => {
+        this.size = size;
+        this.getProductList();
+      });
   }
 
   public getCategoryIdAndProductList() {
@@ -94,7 +104,8 @@ export class SubcategoryComponent extends BaseComponent implements OnInit {
       this.categoryId,
       this.minPrice,
       this.maxPrice,
-      this.size
+      this.size,
+      this.sortOptions
     );
   }
 
