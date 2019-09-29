@@ -6,6 +6,7 @@ import { BehaviorSubject, Subject } from "rxjs";
 })
 export class CustomModalService {
   public sizeChosen: Subject<any> = new Subject();
+  public toggleFilters: BehaviorSubject<any> = new BehaviorSubject(false);
   public backdropSubject: BehaviorSubject<boolean> = new BehaviorSubject(false);
   constructor() {}
 }

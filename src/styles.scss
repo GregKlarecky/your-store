@@ -22,6 +22,10 @@ body {
   animation: fade-in 500ms ease-in forwards;
 }
 
+.backdrop-filters {
+  z-index: $filters-backdrop;
+}
+
 .banners-text {
   b {
     font-weight: 900 !important;

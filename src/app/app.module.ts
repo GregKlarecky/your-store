@@ -36,6 +36,7 @@ import { CustomRadioInputComponent } from "./shared/custom-radio-input/custom-ra
 import { Ng5SliderModule } from "ng5-slider";
 import { NguCarouselModule } from "@ngu/carousel";
 import { CarouselComponent } from './shared/carousel/carousel.component';
+import { FiltersButtonComponent } from './shared/filters-button/filters-button.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { CarouselComponent } from './shared/carousel/carousel.component';
     DropDownMenuComponent,
     FiltersComponent,
     CustomRadioInputComponent,
-    CarouselComponent
+    CarouselComponent,
+    FiltersButtonComponent
   ],
   imports: [
     BrowserModule,

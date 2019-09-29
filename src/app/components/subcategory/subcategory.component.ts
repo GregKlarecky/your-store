@@ -7,6 +7,7 @@ import { Options } from "ng5-slider";
 import { takeUntil, tap } from "rxjs/operators";
 import { BaseComponent } from "src/app/shared/base/base.component";
 import { CustomRadioInputService } from "src/app/services/custom-radio-input.service";
+import { CustomModalService } from "src/app/services/custom-modal.service";
 
 @Component({
   selector: "app-subcategory",
@@ -22,11 +23,13 @@ export class SubcategoryComponent extends BaseComponent implements OnInit {
   public maxPrice: number = 100;
   public ifShoeCategory: boolean;
   public initialOptions: Options;
+  public showFilters: boolean = false;
   constructor(
     private route: ActivatedRoute,
     private categoriesService: CategoriesService,
     private productsService: ProductsService,
-    private customRadio: CustomRadioInputService
+    private customRadio: CustomRadioInputService,
+    private customModalService: CustomModalService
   ) {
     super();
   }
@@ -36,6 +39,10 @@ export class SubcategoryComponent extends BaseComponent implements OnInit {
     this.getCategoryIdAndProductList();
     this.checkIfShoeCategory();
     this.filterBySize();
+  }
+
+  public openFilters() {
+    this.customModalService.toggleFilters.next(true);
   }
 
   public filterBySize() {

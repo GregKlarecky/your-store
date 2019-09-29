@@ -41,12 +41,18 @@
   background: #000;
   color: #fff;
   padding: 14px;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: bold;
   margin: 0.7rem;
   transition: color outline 100ms;
   &:active {
     color: grey;
+  }
+}
+
+@media screen and (min-width: 340px) {
+  .add-to-cart-btn {
+    font-size: 1rem;
   }
 }
 

@@ -1,0 +1,16 @@
+.button-show-filters {
+  height: 100%;
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 15px;
+  span {
+    // translate for navbar and padding
+    transform: rotate(-90deg) translateX(4.5rem);
+  }
+  i {
+    margin-left: 1rem;
+  }
+}

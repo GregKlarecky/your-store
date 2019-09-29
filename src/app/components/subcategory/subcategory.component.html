@@ -1,10 +1,14 @@
-<div class="container">
+<div class="subcategory-container">
   <app-filters
-    class="show-on-desktop"
     [options]="initialOptions"
     (values)="filterByPrice($event)"
     [sizeList]="sizeList"
   ></app-filters>
+  <app-filters-button
+    (click)="openFilters()"
+    class="button-show-filters show-on-mobile"
+    [toggleOn]="true"
+  ></app-filters-button>
   <ul class="list product-list" *ngIf="productList.length">
     <li class="list-item shadow" *ngFor="let product of productList">
       <app-product-card

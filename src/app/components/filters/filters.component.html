@@ -1,27 +1,40 @@
-<div class="subcategories" *ngIf="parentCategory.id !== 0">
-  <ul class="list subcategories-list filter">
-    <h2>{{ parentCategory.name | titlecase }}</h2>
-    <li
-      *ngFor="let subcategory of subcategories"
-      [routerLink]="['/subcategory', subcategory?.id]"
+<div class="filters-container" [class.active]="showFilters">
+  <div class="wrapper">
+    <div class="subcategories" *ngIf="parentCategory.id !== 0">
+      <ul class="list subcategories-list filter">
+        <h2>{{ parentCategory.name | titlecase }}</h2>
+        <li
+          *ngFor="let subcategory of subcategories"
+          [routerLink]="['/subcategory', subcategory?.id]"
+        >
+          {{ subcategory?.name }}
+        </li>
+      </ul>
+    </div>
+    <div class="sizes filter" *ngIf="sizeList">
+      <h2>Size</h2>
+      <app-custom-radio-input [values]="sizeList"></app-custom-radio-input>
+    </div>
+    <div class="price filter">
+      <h2>Price</h2>
+      <ng5-slider
+        [(value)]="value"
+        [options]="options"
+        [(highValue)]="highValue"
+        (userChangeEnd)="filterByPrice()"
+      ></ng5-slider>
+    </div>
+    <div
+      class="banner link show-on-desktop"
+      [routerLink]="['/subcategory', 21]"
     >
-      {{ subcategory?.name }}
-    </li>
-  </ul>
+      <img src="assets/banners/outlet.jpg" alt="" />
+    </div>
+  </div>
+  <app-filters-button
+    class="button"
+    (click)="closeFilters()"
+    [toggleOn]="false"
+  ></app-filters-button>
 </div>
-<div class="size filter" *ngIf="sizeList">
-  <h2>Size</h2>
-  <app-custom-radio-input [values]="sizeList"></app-custom-radio-input>
-</div>
-<div class="price filter">
-  <h2>Price</h2>
-  <ng5-slider
-    [(value)]="value"
-    [options]="options"
-    [(highValue)]="highValue"
-    (userChangeEnd)="filterByPrice()"
-  ></ng5-slider>
-</div>
-<div class="banner link" [routerLink]="['/subcategory', 21]">
-  <img src="assets/banners/outlet.jpg" alt="" />
-</div>
+<div class="backdrop backdrop-filters show-on-mobile" *ngIf="showFilters"></div>
