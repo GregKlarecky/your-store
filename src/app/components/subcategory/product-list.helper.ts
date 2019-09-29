@@ -759,12 +759,5 @@ export const productList: IProduct[] = [
     price: 34.9,
     image_url: "DNI395-Q82-0299-3100-0a.jpg",
     category_id: 21
-  },
-  {
-    name: "necklace",
-    sku: "BP001Xa",
-    price: 44.9,
-    image_url: "BN0037Xa.jpg",
-    category_id: 13
   }
 ];
