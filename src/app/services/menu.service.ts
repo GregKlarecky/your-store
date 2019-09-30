@@ -7,5 +7,6 @@ import { tap } from "rxjs/operators";
 })
 export class MenuService {
   toggleMenu: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  toggleSearch: BehaviorSubject<boolean> = new BehaviorSubject(false);
   constructor() {}
 }

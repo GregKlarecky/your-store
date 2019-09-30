@@ -69,4 +69,8 @@ export class NavbarComponent extends BaseComponent
   ngOnDestroy() {
     super.ngOnDestroy();
   }
+
+  toogleSearch() {
+    this.menuService.toggleSearch.next(true);
+  }
 }

@@ -1,0 +1,44 @@
+@import "~src/assets/styles/variables";
+
+.wrapper {
+  background: #f8f8f8;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  border-top: 1px solid #ced4da;
+  box-shadow: 0 2px 6px 0 rgba(154, 154, 154, 0.5);
+  z-index: $search-z;
+  position: fixed;
+  top: -5rem;
+  transition: 350ms ease-in-out;
+  i {
+    padding: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  input {
+    background: transparent;
+    flex: 1;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border: none;
+    &:focus {
+      //   border: none;
+      outline: none;
+    }
+  }
+}
+
+.active {
+  top: 0;
+}
+
+.search-backdrop {
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  position: fixed;
+  z-index: $search-backdrop-z;
+}

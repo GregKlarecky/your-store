@@ -38,6 +38,7 @@ import { NguCarouselModule } from "@ngu/carousel";
 import { CarouselComponent } from './shared/carousel/carousel.component';
 import { FiltersButtonComponent } from './shared/filters-button/filters-button.component';
 import { SortComponent } from './components/sort/sort.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { SortComponent } from './components/sort/sort.component';
     CustomRadioInputComponent,
     CarouselComponent,
     FiltersButtonComponent,
-    SortComponent
+    SortComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
