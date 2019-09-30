@@ -3,7 +3,10 @@ import { Component, OnInit, Input } from "@angular/core";
 @Component({
   selector: "app-filters-button",
   template: `
-    <div class="show-on-mobie button-show-filters">
+    <div
+      class="show-on-mobie button-show-filters"
+      [class.thumbnail]="thumbnail"
+    >
       <span *ngIf="!toggleOn"
         >Hide filters <i class="fas fa-chevron-up"></i>
       </span>
@@ -17,6 +20,7 @@ import { Component, OnInit, Input } from "@angular/core";
 export class FiltersButtonComponent implements OnInit {
   constructor() {}
   @Input() toggleOn: boolean;
+  @Input() thumbnail: boolean;
 
   ngOnInit() {}
 }

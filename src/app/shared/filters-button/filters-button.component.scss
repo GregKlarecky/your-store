@@ -6,11 +6,37 @@
   justify-content: center;
   flex-direction: column;
   width: 15px;
+  cursor: pointer;
   span {
     // translate for navbar and padding
     transform: rotate(-90deg) translateX(4.5rem);
   }
   i {
     margin-left: 1rem;
+  }
+}
+
+.thumbnail {
+  height: 8rem;
+  position: relative;
+  background: #fff;
+  opacity: 0.9;
+  padding: 20px;
+  span {
+    transform: rotate(-90deg);
+  }
+  &:before {
+    position: absolute;
+    content: "";
+    border: 28px solid transparent;
+    border-top-color: #fff;
+    transform: translate(-35%, -114%) rotate(45deg);
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    border: 28px solid transparent;
+    border-right-color: #fff;
+    transform: translate(-35%, 114%) rotate(45deg);
   }
 }

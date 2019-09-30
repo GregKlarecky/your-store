@@ -5,22 +5,28 @@ import { sortTypes, directions } from "src/interfaces/sort-options.interface";
 @Component({
   selector: "app-sort",
   template: `
-    <i
-      class="fas"
-      [ngClass]="{
-        'fa-sort-alpha-down': alphaDown,
-        'fa-sort-alpha-down-alt': !alphaDown
-      }"
-      (click)="sortAlpha()"
-    ></i>
-    <i
-      class="fas"
-      [ngClass]="{
-        'fa-sort-numeric-down': priceDown,
-        'fa-sort-numeric-down-alt': !priceDown
-      }"
-      (click)="sortPrice()"
-    ></i>
+    <div class="option" [class.active]="type === 'Alpha'" (click)="sortAlpha()">
+      <i
+        class="fas"
+        [ngClass]="{
+          'fa-sort-alpha-down': alphaDown,
+          'fa-sort-alpha-down-alt': !alphaDown
+        }"
+        (click)="sortAlpha()"
+      ></i
+      ><span> By alphabet </span>
+    </div>
+    <div class="option" (click)="sortPrice()" [class.active]="type === 'Price'">
+      <i
+        class="fas"
+        [ngClass]="{
+          'fa-sort-numeric-down': priceDown,
+          'fa-sort-numeric-down-alt': !priceDown
+        }"
+        (click)="sortPrice()"
+      ></i
+      ><span> By price </span>
+    </div>
   `,
   styleUrls: ["./sort.component.scss"]
 })

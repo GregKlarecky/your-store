@@ -8,6 +8,7 @@
     (click)="openFilters()"
     class="button-show-filters show-on-mobile"
     [toggleOn]="true"
+    [thumbnail]="true"
   ></app-filters-button>
   <ul class="list product-list" *ngIf="productList?.length">
     <li class="list-item shadow" *ngFor="let product of productList">
