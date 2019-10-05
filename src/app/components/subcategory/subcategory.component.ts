@@ -89,10 +89,9 @@ export class SubcategoryComponent extends BaseComponent implements OnInit {
   public handleCategoryId() {
     this.checkIfShoeCategory();
     if (this.categoryId === 11) {
-      this.productList = this.productsService.getProductsByName("bag");
-    } else {
-      this.getProductList();
+      this.categoryId = 61;
     }
+    this.getProductList();
     this.getInitialOptions();
     this.sizeList = this.categoriesService.chooseSizelist(this.categoryId);
   }

@@ -30,7 +30,6 @@ export class CarouselComponent implements OnInit {
     },
     touch: true,
     loop: true,
-    interval: { timing: 1500 },
     animation: "lazy"
   };
   tempData: any[];
