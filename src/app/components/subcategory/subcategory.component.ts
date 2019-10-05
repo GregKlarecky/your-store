@@ -26,6 +26,7 @@ export class SubcategoryComponent extends BaseComponent implements OnInit {
   public ifShoeCategory: boolean;
   public initialOptions: Options;
   public showFilters: boolean = false;
+  public searchTerm: string;
   public sortOptions: ISortOptions = initialSort;
   constructor(
     private route: ActivatedRoute,
@@ -40,7 +41,6 @@ export class SubcategoryComponent extends BaseComponent implements OnInit {
   ngOnInit() {
     window.scrollTo(0, 0);
     this.getCategoryIdAndProductList();
-    this.checkIfShoeCategory();
     this.filterBySize();
     this.sortList();
   }
@@ -71,15 +71,30 @@ export class SubcategoryComponent extends BaseComponent implements OnInit {
     this.route.paramMap.subscribe(paramMap => {
       this.clearFilters();
       this.categoryId = parseInt(paramMap.get("id"), 10);
-      this.checkIfShoeCategory();
-      if (this.categoryId === 11) {
-        this.productList = this.productsService.getProductsByName("bag");
-      } else {
-        this.getProductList();
+      this.searchTerm = paramMap.get("search-term");
+      if (this.categoryId) {
+        this.handleCategoryId();
       }
-      this.getInitialOptions();
-      this.sizeList = this.categoriesService.chooseSizelist(this.categoryId);
+      if (this.searchTerm) {
+        this.handleSearchTerm();
+      }
     });
+  }
+
+  public handleSearchTerm() {
+    this.getProductList();
+    this.getInitialOptions();
+  }
+
+  public handleCategoryId() {
+    this.checkIfShoeCategory();
+    if (this.categoryId === 11) {
+      this.productList = this.productsService.getProductsByName("bag");
+    } else {
+      this.getProductList();
+    }
+    this.getInitialOptions();
+    this.sizeList = this.categoriesService.chooseSizelist(this.categoryId);
   }
 
   public getInitialOptions() {
@@ -100,13 +115,23 @@ export class SubcategoryComponent extends BaseComponent implements OnInit {
   }
 
   public getProductList() {
-    this.productList = this.productsService.getProductListByCategoryIdAndFilters(
-      this.categoryId,
-      this.minPrice,
-      this.maxPrice,
-      this.size,
-      this.sortOptions
-    );
+    if (this.categoryId) {
+      this.productList = this.productsService.getProductListByCategoryIdAndFilters(
+        this.categoryId,
+        this.minPrice,
+        this.maxPrice,
+        this.size,
+        this.sortOptions
+      );
+    } else if (this.searchTerm) {
+      this.productList = this.productsService.getSimilarProducts(
+        this.searchTerm,
+        this.minPrice,
+        this.maxPrice,
+        this.size,
+        this.sortOptions
+      );
+    }
   }
 
   public getPricesList() {

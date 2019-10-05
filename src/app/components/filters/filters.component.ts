@@ -74,12 +74,14 @@ export class FiltersComponent extends BaseComponent
       .pipe(
         tap(paramMap => {
           const id = parseInt(paramMap.get("id"), 10);
-          this.parentCategory = this.categoriesService.getCategoryParentByChildId(
-            id
-          );
-          this.subcategories = this.categoriesService.getCategoriesByParentId(
-            this.parentCategory.id
-          );
+          if (id) {
+            this.parentCategory = this.categoriesService.getCategoryParentByChildId(
+              id
+            );
+            this.subcategories = this.categoriesService.getCategoriesByParentId(
+              this.parentCategory.id
+            );
+          }
         })
       )
       .subscribe();

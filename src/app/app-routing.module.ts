@@ -23,6 +23,11 @@ const routes: Routes = [
     data: { animation: "Subcategory" }
   },
   {
+    path: "search-results/:search-term",
+    component: SubcategoryComponent,
+    data: { animation: "Subcategory" }
+  },
+  {
     path: "cart",
     component: CartComponent,
     data: { animation: "Cart" }

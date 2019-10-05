@@ -1,8 +1,8 @@
 <div class="filters-container" [class.active]="showFilters">
   <div class="wrapper">
-    <div class="subcategories" *ngIf="parentCategory.id !== 0">
+    <div class="subcategories" *ngIf="parentCategory?.id !== 0">
       <ul class="list subcategories-list filter">
-        <h2>{{ parentCategory.name | titlecase }}</h2>
+        <h2>{{ parentCategory?.name | titlecase }}</h2>
         <li
           *ngFor="let subcategory of subcategories"
           [routerLink]="['/subcategory', subcategory?.id]"

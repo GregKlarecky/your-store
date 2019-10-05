@@ -1,5 +1,5 @@
 <div class="wrapper" [class.active]="show">
   <i class="fas fa-chevron-circle-left" (click)="close()"></i
-  ><input type="text" />
+  ><input type="text" [formControl]="searchTerm" (keyup.enter)="submit()" />
 </div>
-<div class="search-backdrop" *ngIf="show" @fade></div>
+<div class="search-backdrop" *ngIf="show" @fade (click)="close()"></div>

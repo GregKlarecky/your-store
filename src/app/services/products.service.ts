@@ -22,6 +22,28 @@ export class ProductsService {
       return product.name === name;
     });
   }
+  getSimilarProducts(
+    searchTerm: string,
+    minPrice: number,
+    maxPrice: number,
+    size: number,
+    sort?: ISortOptions
+  ) {
+    const list = this.productList.filter(
+      product =>
+        product.name.includes(searchTerm) &&
+        this.filterByPrice(product, minPrice, maxPrice) &&
+        this.filterBySize(product, size)
+    );
+    switch (sort.type) {
+      case sortTypes.price:
+        return this.sortByPrice(list, sort.direction);
+      case sortTypes.alpha:
+        return this.sortByAlpha(list, sort.direction);
+      default:
+        return list;
+    }
+  }
 
   getProductListByCategoryId(id: number) {
     return this.productList.filter(product => {

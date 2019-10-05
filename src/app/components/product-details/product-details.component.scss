@@ -40,7 +40,8 @@
     font-weight: bold;
   }
   &-image {
-    min-height: 573px;
+    min-height: 450px;
+    height: 450px;
     &-wrapper {
       display: flex;
       align-items: center;
@@ -250,6 +251,8 @@
       flex-direction: row;
     }
     &-image {
+      min-height: 573px;
+      height: 573px;
       &-wrapper {
         flex: 1;
       }

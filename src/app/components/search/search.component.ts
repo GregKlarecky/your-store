@@ -3,6 +3,8 @@ import { MenuService } from "src/app/services/menu.service";
 import { takeUntil } from "rxjs/operators";
 import { BaseComponent } from "src/app/shared/base/base.component";
 import { trigger, transition, style, animate } from "@angular/animations";
+import { FormControl, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-search",
@@ -20,8 +22,9 @@ import { trigger, transition, style, animate } from "@angular/animations";
 })
 export class SearchComponent extends BaseComponent implements OnInit {
   public show: boolean;
+  public searchTerm = new FormControl("", [Validators.required]);
 
-  constructor(private menuService: MenuService) {
+  constructor(private menuService: MenuService, private router: Router) {
     super();
   }
 
@@ -35,5 +38,12 @@ export class SearchComponent extends BaseComponent implements OnInit {
 
   public close() {
     this.menuService.toggleSearch.next(false);
+  }
+  public submit() {
+    if (this.searchTerm.valid) {
+      this.close();
+      this.router.navigate(["/search-results", this.searchTerm.value]);
+      this.searchTerm.reset();
+    }
   }
 }

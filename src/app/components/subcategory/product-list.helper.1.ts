@@ -36,7 +36,7 @@ export const productList2: IProduct[] = [
   {
     name: "aldo",
     sku: "MPU101",
-    price: 39.9,
+    price: 34.9,
     image_url: "MPU101-AQ5-R517-8385-Ta.jpg",
     category_id: 51,
     sizes: [41, 44, 42, 44, 40, 43]
