@@ -22,6 +22,10 @@
   li {
     margin-right: 1rem;
     margin-bottom: 0.5rem;
+    img {
+      width: 140px;
+      height: 140px;
+    }
   }
 }
 
@@ -49,5 +53,10 @@
     width: auto;
   }
 }
+
+.column-list {
+  // flex-direction: column;
+}
+
 @media screen and (min-width: $md-screen) {
 }

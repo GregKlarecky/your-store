@@ -23,5 +23,9 @@ export class DropDownMenuComponent implements OnInit {
     let category = this.categoriesService.getCategoryById(id);
     return category ? category : {};
   }
+
+  isJewellery(category: ICategory) {
+    return category.parent === 16;
+  }
   ngOnInit() {}
 }

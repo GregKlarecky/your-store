@@ -1,9 +1,18 @@
 <div class="subcategories-container" *ngIf="subcategories.length">
-  <ul class="list subcategories-list">
+  <ul
+    class="list subcategories-list"
+    [class.column-list]="isJewellery(subcategories[0])"
+  >
     <li *ngFor="let subcategory of subcategories" class="subcategory-block">
       <span class="subcategory-label" (click)="goToCategory(subcategory.id)">
         {{ subcategory.name }}
       </span>
+      <img
+        (click)="goToCategory(subcategory.id)"
+        *ngIf="subcategory.img_url"
+        [src]="'assets/shoes/' + subcategory.img_url"
+        alt="subcategory-image"
+      />
       <ul class="list">
         <li
           *ngFor="let grandSubcategoryId of subcategory.children"
