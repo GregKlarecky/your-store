@@ -1,12 +1,19 @@
 @import "~src/assets/styles/variables";
 
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .container-navbar {
   background-color: $brand-color;
   color: #fff;
   height: $navbar-height;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   font-size: 1.3rem;
   position: fixed;
@@ -102,6 +109,4 @@
     height: 170px;
     width: auto;
   }
-}
-@media screen and (min-width: $md-screen) {
 }

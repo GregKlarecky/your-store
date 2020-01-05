@@ -1,33 +1,35 @@
 <nav class="container-navbar">
-  <div class="categories">
-    <div class="nav-item logo" routerLink="/">YourStore.com</div>
-    <div
-      class="nav-item show-on-desktop-flex"
-      *ngFor="let category of rootCategories"
-      (click)="goToCategory(category.id)"
-      (mouseenter)="selectSubcategory(category)"
-      (mouseleave)="turnOff()"
-    >
-      <span>
-        {{ category.name }}
-      </span>
-      <app-drop-down-menu
-        [subcategories]="subcategories"
-        *ngIf="category.id === selectedCategoryId"
-        (close)="turnOff()"
-      ></app-drop-down-menu>
+  <div class="container wrapper">
+    <div class="categories">
+      <div class="nav-item logo" routerLink="/">YourStore.com</div>
+      <div
+        class="nav-item show-on-desktop-flex"
+        *ngFor="let category of rootCategories"
+        (click)="goToCategory(category.id)"
+        (mouseenter)="selectSubcategory(category)"
+        (mouseleave)="turnOff()"
+      >
+        <span>
+          {{ category.name }}
+        </span>
+        <app-drop-down-menu
+          [subcategories]="subcategories"
+          *ngIf="category.id === selectedCategoryId"
+          (close)="turnOff()"
+        ></app-drop-down-menu>
+      </div>
     </div>
-  </div>
-  <div class="tools">
-    <div class="nav-item search" (click)="toogleSearch()">
-      <i class="fas fa-search"></i>
-    </div>
-    <div class="nav-item cart" [routerLink]="['/cart']">
-      <i class="fas fa-shopping-cart"></i>
-      <div class="badge">{{ itemsCount }}</div>
-    </div>
-    <div class="nav-item menu show-on-mobile" (click)="toggleMenu()">
-      <i class="fas fa-bars"></i>
+    <div class="tools">
+      <div class="nav-item search" (click)="toogleSearch()">
+        <i class="fas fa-search"></i>
+      </div>
+      <div class="nav-item cart" [routerLink]="['/cart']">
+        <i class="fas fa-shopping-cart"></i>
+        <div class="badge">{{ itemsCount }}</div>
+      </div>
+      <div class="nav-item menu show-on-mobile" (click)="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
     </div>
   </div>
 </nav>

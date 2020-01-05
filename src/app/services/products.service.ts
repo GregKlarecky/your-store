@@ -31,7 +31,7 @@ export class ProductsService {
   ) {
     const list = this.productList.filter(
       product =>
-        product.name.includes(searchTerm) &&
+        product.name.includes(searchTerm.toLowerCase()) &&
         this.filterByPrice(product, minPrice, maxPrice) &&
         this.filterBySize(product, size)
     );
