@@ -110,3 +110,9 @@
     width: auto;
   }
 }
+
+.backdrop {
+  position: fixed;
+  left: 0;
+  z-index: 5;
+}

@@ -6,11 +6,17 @@ import { CartService } from "src/app/services/cart.service";
 import { ICategory, categories } from "../sidemenu/categories.helper";
 import { CategoriesService } from "src/app/services/categories.service";
 import { recommendations } from "./recommendations.helper";
+import { trigger, transition, animate, style } from "@angular/animations";
 
 @Component({
   selector: "app-navbar",
   templateUrl: "./navbar.component.html",
-  styleUrls: ["./navbar.component.scss"]
+  styleUrls: ["./navbar.component.scss"],
+  animations: [
+    trigger("fade", [
+      transition(":leave", [animate("250ms", style({ opacity: 0 }))])
+    ])
+  ]
 })
 export class NavbarComponent extends BaseComponent
   implements OnInit, OnDestroy {
@@ -47,6 +53,8 @@ export class NavbarComponent extends BaseComponent
       this.subcategories = this.categoriesService.getCategoriesByParentId(
         category.id
       );
+    } else {
+      this.turnOff();
     }
   }
 
